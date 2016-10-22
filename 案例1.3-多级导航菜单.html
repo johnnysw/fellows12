@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu .main-menu{
+            width: 120px;
+            height: 30px;
+            background: #cccccc;
+            float: left;
+            margin-right: 5px;
+        }
+        #menu .main-menu a{
+            width: 120px;
+            height: 30px;
+            display: block;
+            line-height: 30px;
+            text-align: center;
+            color: #f00;
+        }
+        #menu .main-menu.clear-magin{
+            margin-right: 0;
+        }
+        #menu .sub-menu{
+            background: #dddddd;
+            display: none;
+        }
+        #menu .main-menu li{
+            border-bottom: 1px dashed #000;
+        }
+        #menu .sub-menu a:hover{
+            background: #eeeeee;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li class="main-menu">
+            <a href="#">Link1</a>
+            <ul class="sub-menu">
+                <li><a href="#">submenu1</a></li>
+                <li><a href="#">submenu2</a></li>
+                <li><a href="#">submenu3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="#">Link2</a>
+            <ul class="sub-menu">
+                <li><a href="#">submenu1</a></li>
+                <li><a href="#">submenu2</a></li>
+                <li><a href="#">submenu3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu clear-magin">
+            <a href="#">Link3</a>
+            <ul class="sub-menu">
+                <li><a href="#">submenu1</a></li>
+                <li><a href="#">submenu2</a></li>
+                <li><a href="#">submenu3</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
