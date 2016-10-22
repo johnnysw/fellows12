@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu h3{
+            width: 200px;
+            height: 30px;
+            background: #000000;
+            color: #fff;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #menu li{
+            width: 200px;
+        }
+        #menu .sub-menu{
+            border: 1px solid #000;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            <h3>管理区</h3>
+            <ul class="sub-menu">
+                <li><a href="#">001</a></li>
+                <li><a href="#">002</a></li>
+                <li><a href="#">003</a></li>
+            </ul>
+        </li>
+        <li>
+            <h3>交流区</h3>
+            <ul class="sub-menu">
+                <li><a href="#">001</a></li>
+                <li><a href="#">002</a></li>
+                <li><a href="#">003</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <script>
+        var oMenu = document.getElementById("menu");
+        var aH3 = oMenu.getElementsByTagName("h3");
+        var aSubMenu = oMenu.getElementsByTagName("ul");
+        for(var i=0; i<aH3.length; i++){
+            aH3[i].index = i;//重点！给每个h3自定义属性index,用于保存住对应的i值
+            aH3[i].bFlag = false;//自定义属性bFlag，用于保存自己的状态,
+            // false表示当前是合上，true表示当前是展开的
+            aH3[i].onclick = function(){
+                if(this.bFlag){
+                    aSubMenu[this.index].style.display = "none";
+                }else {
+                    aSubMenu[this.index].style.display = "block";
+                }
+                this.bFlag = !this.bFlag;
+            };
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

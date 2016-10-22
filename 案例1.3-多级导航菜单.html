@@ -63,7 +63,7 @@
                 <li><a href="#">submenu3</a></li>
             </ul>
         </li>
-        <li class="main-menu clear-magin">
+        <li class="main-menu">
             <a href="#">Link3</a>
             <ul class="sub-menu">
                 <li><a href="#">submenu1</a></li>
@@ -72,5 +72,31 @@
             </ul>
         </li>
     </ul>
+
+    <script>
+        var oMenu = document.getElementById("menu");
+        var aLi = oMenu.getElementsByTagName("li");//nodelist
+//        var aLi2 = document.getElementsByClassName("main-menu");/*不支持早期IE*/
+        for(var i=0; i<aLi.length; i++){
+            if(aLi[i].className == "main-menu"){
+                aLi[i].onmouseover = function(){
+                    var oSubMenu = this.getElementsByTagName("ul")[0];
+                    oSubMenu.style.display = "block";
+                };
+                aLi[i].onmouseout = function(){
+                    var oSubMenu = this.getElementsByTagName("ul")[0];
+                    oSubMenu.style.display = "none";
+                };
+            }
+        }
+    </script>
 </body>
 </html>
+<!--
+事件：
+1、事件源
+2、事件处理函数
+3、事件e
+
+
+-->
