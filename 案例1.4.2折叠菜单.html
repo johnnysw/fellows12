@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠菜单1.4.2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu h3{
+            width: 200px;
+            height: 30px;
+            background: #000000;
+            color: #fff;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #menu li{
+            width: 200px;
+        }
+        #menu .sub-menu{
+            border: 1px solid #000;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3>管理区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>交流区</h3>
+        <ul class="sub-menu">
+            <li class="main-menu"><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+</ul>
+<!--var arr = [ul];-->
+<!--arr[0];-->
+<!--arr[2]-->
+
+<script>
+    var oUl = document.getElementById('menu');
+    var aLi = oUl.getElementsByTagName('li');  
+    for(var i=0; i<aLi.length; i++){
+
+        if(aLi[i].className == 'main-menu'){
+            aLi[i].onclick = function(){
+
+                var oSubMenu = this.getElementsByTagName('ul')[0];
+
+                if(oSubMenu.style.display == 'block'){
+                    oSubMenu.style.display = 'none';
+                }else{
+                    oSubMenu.style.display = 'block';
+                }
+            };
+        }
+    }
+
+</script>
+</body>
+</html>
