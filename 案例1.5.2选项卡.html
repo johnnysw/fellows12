@@ -30,7 +30,7 @@
             text-align: center;
             cursor:pointer;
         }
-        #container .selected{
+        #tab .selected{
             background: #000000;
             color:#fff;
         }
@@ -39,18 +39,25 @@
             height: 270px;
             border-top:1px solid #000;
         }
-
+        #content div{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div id="container">
-        <ul>
+        <ul id="tab">
             <li class="selected">111</li>
             <li>222</li>
             <li>333</li>
         </ul>
         <div id="content">
-
+            <div class="selected">001</div>
+            <div>002</div>
+            <div>003</div>
         </div>
     </div>
 
@@ -58,9 +65,7 @@
         var oContainer = document.getElementById('container');
         var aLi =  oContainer.getElementsByTagName('li');
         var oContent = document.getElementById('content');
-
-        var data = ['aaa','bbb','ccc'];
-        oContent.innerHTML = data[0];  //oContent里的文字是data[0]  = aaa
+        var aDiv = oContent.getElementsByTagName('div');
 
         for(var i=0; i<aLi.length; i++)
         {
@@ -68,9 +73,10 @@
             aLi[i].onclick = function(){
                 for(var j=0;j<aLi.length; j++){
                     aLi[j].className = '';
+                    aDiv[j].className = '';
                 }
                 this.className = 'selected';
-                oContent.innerHTML = data[this.index];
+                aDiv[this.index].className = 'selected';
             }
         }
 
