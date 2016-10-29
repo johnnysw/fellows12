@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #a{
+            background: #ff0000;
+            z-index: 3;
+        }
+        #b{
+            background: #00ff00;
+            z-index: 2;
+        }
+        #c{
+            background: #0000ff;
+            z-index: 1;
+        }
+        #main{
+            width: 700px;
+            height: 300px;
+            background: #cccccc;
+            /*position: relative;
+            left: 50px;
+            top: 50px;*/
+            /*margin-left: 50px;
+            margin-top: 50px;*/
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="a">a</div>
+        <div id="b">b</div>
+        <div id="c">c</div>
+    </div>
+</body>
+</html>

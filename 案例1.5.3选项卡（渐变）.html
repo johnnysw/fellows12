@@ -30,7 +30,7 @@
             text-align: center;
             cursor:pointer;
         }
-        #container .selected{
+        #tab .selected{
             background: #000000;
             color:#fff;
         }
@@ -38,43 +38,55 @@
             background: #eee;
             height: 270px;
             border-top:1px solid #000;
+            position: relative;
+        }
+        #content div{
+            background: #eee;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
     </style>
 </head>
 <body>
     <div id="container">
-        <ul>
+        <ul id="tab">
             <li class="selected">111</li>
             <li>222</li>
             <li>333</li>
         </ul>
         <div id="content">
-
+            <div>001</div>
+            <div>002</div>
+            <div>003</div>
         </div>
     </div>
-
+    <script src="jslib.js"></script>
     <script>
-        var oContainer = document.getElementById('container');
-        var aLi =  oContainer.getElementsByTagName('li');
+        var oTab = document.getElementById('tab');
+        var aLi = oTab.getElementsByTagName('li');
         var oContent = document.getElementById('content');
-
-        var data = ['aaa','bbb','ccc'];
-        oContent.innerHTML = data[0];  //oContent里的文字是data[0]  = aaa
-
-        for(var i=0; i<aLi.length; i++)
-        {
+        var aDiv = oContent.getElementsByTagName('div');
+        for(var i=0; i<aDiv.length; i++){
+            aDiv[i].style.zIndex = aDiv.length - i;//保证最前面的div的z-index最大，也就是在最上面
+        }
+        var zIndex = 3;
+        for(var i=0; i<aLi.length; i++){
             aLi[i].index = i;
             aLi[i].onclick = function(){
-                for(var j=0;j<aLi.length; j++){
-                    aLi[j].className = '';
+                for(var i=0; i<aLi.length; i++){
+                    aLi[i].className = '';
                 }
                 this.className = 'selected';
-                oContent.innerHTML = data[this.index];
-            }
+                var oDiv = aDiv[this.index];
+                oDiv.style.opacity = 0;
+                oDiv.style.zIndex = ++zIndex;
+                animate(oDiv, {opacity: 100});
+            };
         }
 
-        //test
+
     </script>
 </body>
 </html>
