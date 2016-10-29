@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="div1">
+        div1
+        <h1 id="h1">h1</h1>
+        <p>p1</p>
+    </div>
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oH1 = oDiv1.children[0];
+//        console.log(   oH1.nextSibling    );
+        //console.log(   oH1.nextElementSibling    );
+        console.log(   next(oH1)    );
+
+        function next(elem){
+            do{
+               elem = elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
+        }
+    </script>
+</body>
+</html>

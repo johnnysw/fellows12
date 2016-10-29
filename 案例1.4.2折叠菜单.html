@@ -56,13 +56,13 @@
 <!--arr[2]-->
 
 <script>
-    var oUl = document.getElementById('menu');
-    var aLi = oUl.getElementsByTagName('li');  
+    /*var oUl = document.getElementById('menu');
+    var aLi = oUl.getElementsByTagName('li');  //[li, li, li, ...]
     for(var i=0; i<aLi.length; i++){
 
         if(aLi[i].className == 'main-menu'){
             aLi[i].onclick = function(){
-
+                //this: 对当前对象的引用
                 var oSubMenu = this.getElementsByTagName('ul')[0];
 
                 if(oSubMenu.style.display == 'block'){
@@ -72,6 +72,22 @@
                 }
             };
         }
+    }*/
+
+    var oUl = document.getElementById('menu');
+    var aLi = oUl.children;
+
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].onclick = function(){
+            //this: 对当前对象的引用
+            var oSubMenu = this.children[1];
+
+            if(oSubMenu.style.display == 'block'){
+                oSubMenu.style.display = 'none';
+            }else{
+                oSubMenu.style.display = 'block';
+            }
+        };
     }
 
 </script>

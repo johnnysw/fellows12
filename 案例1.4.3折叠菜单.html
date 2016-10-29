@@ -58,17 +58,18 @@
     var aH3 = oMenu.getElementsByTagName("h3");
     var aSubMenu = oMenu.getElementsByTagName("ul");
 
-
+    //var bShow = false;//一个标识变量，用来标识sub-menu是否显示
+                        // true为显示, false为隐藏
     for(var i=0; i<aH3.length; i++){
-        aH3[i].bFlag = false;  //初始display = none
+        aH3[i].bShow = false;
         aH3[i].onclick = function(){
             var oUl = next(this);
-            if(this.bFlag == false){
-                oUl.style.display = 'block';
-            }else{
+            if(this.bShow){
                 oUl.style.display = 'none';
+            }else{
+                oUl.style.display = 'block';
             }
-            this.bFlag = !this.bFlag;
+            this.bShow = !this.bShow;
         }
     }
 
