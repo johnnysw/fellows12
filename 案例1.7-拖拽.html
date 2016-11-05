@@ -30,16 +30,28 @@
         var left = e.clientX-oDrag.offsetLeft;
         var top = e.clientY-oDrag.offsetTop;
 
-        document.onmousemove = function(e){
-            e = e || window.event;
-            var ileft = e.clientX - left;
-            var itop = e.clientY - top;
+        document.onmousemove = function(event){
+            event = event || window.event;
+            var ileft = event.clientX - left;
+            var itop = event.clientY - top;
+
+            if(ileft<0){
+                ileft =0;
+            }else if(ileft > document.documentElement.clientWidth - oDrag.offsetWidth){
+                ileft = document.documentElement.clientWidth - oDrag.offsetWidth;
+            }
+            if(itop<0){
+                itop = 0;
+            }else if(itop > document.documentElement.clientHeight - oDrag.offsetHeight){
+                itop = document.documentElement.clientHeight - oDrag.offsetHeight;
+            }
+
 
             oDrag.style.left = ileft + 'px';
             oDrag.style.top = itop + 'px';
         }
 
-        oDrag.onmouseup = function(){
+        document.onmouseup = function(){
             document.onmousemove = null;
         }
     }
