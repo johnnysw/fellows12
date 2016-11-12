@@ -17,6 +17,7 @@
             border: 1px solid #000;
             margin:50px auto;
             position: relative;
+            overflow: hidden;
         }
         #content{
             /*width: 520px;*/
@@ -60,23 +61,44 @@
             <li>4</li>
         </ul>
         <div id="arrow">
-            <span>&lt;&lt;向左</span>
-            <span>&gt;&gt;向右</span>
+            <span id="left">&lt;&lt;向左</span>
+            <span id="right">&gt;&gt;向右</span>
         </div>
     </div>
     <script>
         var oContent = document.getElementById('content');
-
+        //复制一组li  追加在后边
         oContent.innerHTML = oContent.innerHTML + oContent.innerHTML;
         var aLi = oContent.getElementsByTagName('li');
+        var oRBtn = document.getElementById('right');
+        var oLBtn = document.getElementById('left');
+
+        //设置oContent宽度
         oContent.style.width = aLi.length * (aLi[0].offsetWidth+10)+"px";
         var speed = -2;
         setInterval(function(){
+            //left值 到达oContent中间的点，left值 设置成0
             if(oContent.offsetLeft <= -oContent.offsetWidth/2){
                 oContent.style.left = 0;
             }
+
+            if(oContent.offsetLeft >0){
+                oContent.style.left = -oContent.offsetWidth/2 +"px";
+            }
+
             oContent.style.left = oContent.offsetLeft + speed +"px";
         },10);
+
+        oRBtn.onmouseover = function(){
+            speed = 2;
+        }
+        oLBtn.onmouseover = function(){
+            speed = -2;
+        }
+
+
+
+
 
     </script>
 

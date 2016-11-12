@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="div1">
+        <p>11111</p>
+        <h3>2222</h3>
+    </div>
+
+    <script>
+        var oDiv = document.getElementById('div1');
+
+        var oP = oDiv.getElementsByTagName('p')[0];
+
+        var oP1 = document.createElement('p');
+        oP1.innerHTML = '333';
+
+        oDiv.appendChild(oP1);
+    </script>
+
+</body>
+</html>
