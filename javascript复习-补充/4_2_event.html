@@ -42,14 +42,14 @@
             e = e || window.event;
             alert('div2');
             e.stopPropagation();
-            cancelBubble = false;
+            e.cancelBubble = true;
 
         }
         oDiv3.onclick = function(e){
             e = e || window.event;
             alert('div3');
             e.stopPropagation();
-            cancelBubble = false;
+            e.cancelBubble = true;
 
         }
 
