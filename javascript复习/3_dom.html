@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <div id="div1">
+        <p>111</p>
+        <h3>2222</h3>
+        <h1></h1>
+    </div>
+    <input type="text" name="username"/>
+</head>
+<body>
+    <script>
+        //dom获取
+        //document.getElementById();
+        //document.getElementsByTagName();
+        //document.getElementsByClassName();
+        //document.getElementsByName('username');
+
+        var oDiv = document.getElementById('div1');
+        var oP = oDiv.getElementsByTagName('p')[0];
+        var oH = oDiv.getElementsByTagName('h3')[0];
+
+        //        console.log(oDiv.nodeType);
+//
+//        console.log(oDiv.nodeValue);
+//        console.log(oP.firstChild.nodeValue);
+        //dom遍历 查找
+        //nextSibling  /nextElementSibling
+        //preventSibling   /preventElementSibling
+        //firstChild  /firstElementChild
+        //lastChild  /lastElementChild
+        //parentNode  所有都支持
+
+       // console.log(oP.nextElementSibling);
+
+        function next(elem){
+            do{
+                elem = elem.nextSibling;
+            }while(elem && elem.nodeType != 1)
+
+            return elem;
+        }
+        function prevent(){
+
+        }
+
+        //console.log(oDiv.firstElementChild);
+
+        function first(elem){
+            elem = elem.firstChild;
+            if(elem && elem.nodeType != 1){
+                next(elem);
+            }
+            return elem;
+        }
+
+        //console.log(oP.parentNode);
+
+        //dom 方法
+        //appendChild()
+        //insertBefore()
+        //cloneNode()
+        //removeChild()
+        //replaceChild()
+        //setAttribute()
+        //getAttribute()
+        //hasChildNodes()
+
+
+        //oDiv.appendChild(oP.cloneNode(true));
+        //oDiv.insertBefore(oH.cloneNode(),oP);
+        //console.log(oP.hasChildNodes());
+        //var pp = oDiv.removeChild(oP);
+
+       // oDiv.appendChild(pp);
+
+//        var pp = oDiv.replaceChild(oP.cloneNode(),oH);
+//
+//        console.log(pp);
+
+
+        //document
+
+       // document.documentElement
+       // document.body
+        //createElement()
+
+        var oDiv1 = document.createElement('div');
+        oDiv1.innerHTML = '000';
+
+        oDiv.appendChild(oDiv1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //阻止事件冒泡
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        var oDiv3 = document.getElementById('div3');
+        oDiv1.onclick = function(){
+            alert('div1');
+        }
+        oDiv2.onclick = function(e){
+            e = e || window.event;
+            alert('div2');
+            e.stopPropagation();
+            cancelBubble = false;
+
+        }
+        oDiv3.onclick = function(e){
+            e = e || window.event;
+            alert('div3');
+            e.stopPropagation();
+            cancelBubble = false;
+
+        }
+
+    </script>
+
+</body>
+</html>
