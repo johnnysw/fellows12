@@ -31,10 +31,21 @@
             overflow: hidden;
             float: left;
             display: none;
-            /*position: relative;*/
+            position: relative;
         }
         #big-img{
             position: relative;
+        }
+        #mask{
+            width: 400px;
+            height: 400px;
+            background: red;
+            position: absolute;
+            left:0px;
+            top:0;
+            z-index:1;
+            opacity: 0;
+            filter: alpha(opacity=0);
         }
     </style>
 </head>
@@ -42,8 +53,9 @@
     <div id="container">
         <div id="small-box">
             <img src="images/1.jpg"/>
+            <div id="mask">
+            </div>
             <div id="drag">
-
             </div>
         </div>
         <div id="big-box">
@@ -55,6 +67,7 @@
                 oDrag = document.getElementById('drag'),
                 oBigBox = document.getElementById('big-box'),
                 oBigImg = document.getElementById("big-img");
+        var oImg = oSmallBox.getElementsByTagName('img')[0];
 
 
         oSmallBox.onmouseover = function(){
