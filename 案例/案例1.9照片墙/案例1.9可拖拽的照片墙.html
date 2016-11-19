@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #container{
+            width: 660px;
+            margin: 0 auto;
+        }
+        #container img{
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="images/1.jpg" alt=""/>
+        <img src="images/2.jpg" alt=""/>
+        <img src="images/3.jpg" alt=""/>
+        <img src="images/4.jpg" alt=""/>
+        <img src="images/5.jpg" alt=""/>
+        <img src="images/6.jpg" alt=""/>
+        <img src="images/7.jpg" alt=""/>
+        <img src="images/8.jpg" alt=""/>
+        <img src="images/9.jpg" alt=""/>
+    </div>
+
+    <script>
+//        1布局转换  float -- 定位
+        var oContainer = document.getElementById('container');
+        var aImg = oContainer.getElementsByTagName('img');
+        var zIndex = 1;
+        var collde = [];
+
+        for(var i=0; i<aImg.length; i++){
+            aImg[i].style.left = aImg[i].offsetLeft +"px";
+            aImg[i].style.top = aImg[i].offsetTop +"px";
+        }
+        for(var i=0; i<aImg.length; i++){
+            aImg[i].style.position = 'absolute';
+            aImg[i].style.margin = 0;
+            drag(aImg[i]);
+        }
+
+
+        function drag(elem){
+            elem.onmousedown = function(e){
+                e = e || window.event;
+                var iDisX = e.clientX - elem.offsetLeft;
+                var iDisY = e.clientY - elem.offsetTop;
+
+                document.onmousemove = function(e){
+                    e = e||window.event;
+
+                    var iLeft = e.clientX - iDisX;
+                    var iTop = e.clientY - iDisY;
+
+                    elem.style.left = iLeft +"px";
+                    elem.style.top = iTop +"px";
+                    elem.style.zIndex = zIndex++;
+
+                    collde = [];
+                    //碰撞检测
+                    for(var i=0; i<aImg.length; i++){
+                        if(aImg[i] == elem){
+                            continue;
+                        }
+                        var isCol = checkCollde(elem,aImg[i]);
+                        if(isCol){
+                            collde.push(aImg[i]);
+                        }
+                    }
+
+                    console.log(collde);
+
+
+                    return false;
+                }
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                }
+            }
+        }
+        /*
+            碰撞检测
+            elem 拖拽元素
+            taregt 碰撞目标元素
+            return  true or false
+         */
+
+        function checkCollde(elem,target){
+            var elemL = elem.offsetLeft,
+                    elemR = elem.offsetLeft + elem.offsetWidth,
+                    elemT = elem.offsetTop,
+                    elemB = elem.offsetTop + elem.offsetHeight;
+            var targetL = target.offsetLeft,
+                    targetR = target.offsetLeft + target.offsetWidth,
+                    targetT = target.offsetTop,
+                    targetB = target.offsetTop + target.offsetHeight;
+
+            if(elemR < targetL || elemB < targetT ||elemL > targetR || elemT > targetB ){
+                //没碰撞
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+
+
+    </script>
+
+</body>
+</html>
