@@ -35,7 +35,7 @@
         <img src="images/8.jpg" alt=""/>
         <img src="images/9.jpg" alt=""/>
     </div>
-
+    <script src="../jslib.js"></script>
     <script>
 //        1布局转换  float -- 定位
 //        2绑定拖拽
@@ -57,6 +57,11 @@
             aImg[i].style.position = 'absolute';
             aImg[i].style.margin = 0;
             drag(aImg[i]);
+
+            aImg[i].pos= {
+                left:aImg[i].offsetLeft,
+                top: aImg[i].offsetTop
+            }
         }
 
 
@@ -96,18 +101,35 @@
                     }else{
                         nearElem = null;
                     }
-
-
-
-
-
                     return false;
                 }
 
                 document.onmouseup = function(){
                     document.onmousemove = null;
+                    document.onmouseup = null;
+                    //elem  nearElem交换位置
+                    if(nearElem){
+                       animate(elem,nearElem.pos);//{ left:nearElem.pos.left,top: nearElem.pos.top
+                       animate(nearElem,elem.pos);
+
+                        var pos = nearElem.pos;
+                        nearElem.pos  = elem.pos;
+                        elem.pos = pos;
+                        nearElem.className = '';
+
+                        nearElem = null;
+
+                    }else{
+                         animate(elem,elem.pos);
+                    }
+
                 }
+
             }
+
+        }
+        document.onselectstart = function(){
+            return false;
         }
         /*
             碰撞检测
