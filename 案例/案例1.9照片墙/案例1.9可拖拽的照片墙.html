@@ -18,6 +18,9 @@
             margin: 10px;
             float: left;
         }
+        #container img.collide{
+            border:1px dotted #f00;
+        }
     </style>
 </head>
 <body>
@@ -35,10 +38,16 @@
 
     <script>
 //        1布局转换  float -- 定位
+//        2绑定拖拽
+//        3检测碰撞,把所有碰撞的元素存在collide
+//        4找出距离最近的
+//        5交换位置
         var oContainer = document.getElementById('container');
         var aImg = oContainer.getElementsByTagName('img');
         var zIndex = 1;
-        var collde = [];
+        var collide = [];
+
+        var nearElem = null;
 
         for(var i=0; i<aImg.length; i++){
             aImg[i].style.left = aImg[i].offsetLeft +"px";
@@ -65,21 +74,31 @@
 
                     elem.style.left = iLeft +"px";
                     elem.style.top = iTop +"px";
+
+
                     elem.style.zIndex = zIndex++;
 
-                    collde = [];
+                    collide = [];
                     //碰撞检测
                     for(var i=0; i<aImg.length; i++){
                         if(aImg[i] == elem){
                             continue;
                         }
-                        var isCol = checkCollde(elem,aImg[i]);
+                        var isCol = checkCollide(elem,aImg[i]);
                         if(isCol){
-                            collde.push(aImg[i]);
+                            collide.push(aImg[i]);
                         }
+                        aImg[i].className = '';
+                    }
+                    if(collide.length>0){
+                        nearElem = nearest(elem);
+                        nearElem.className = 'collide';
+                    }else{
+                        nearElem = null;
                     }
 
-                    console.log(collde);
+
+
 
 
                     return false;
@@ -97,7 +116,7 @@
             return  true or false
          */
 
-        function checkCollde(elem,target){
+        function checkCollide(elem,target){
             var elemL = elem.offsetLeft,
                     elemR = elem.offsetLeft + elem.offsetWidth,
                     elemT = elem.offsetTop,
@@ -114,6 +133,24 @@
                 return true;
             }
         }
+
+        function nearest(elem){
+            var minDis = 99999;
+            var index = -1;
+            for(var i=0; i<collide.length; i++){
+                var x =  collide[i].offsetLeft - elem.offsetLeft;
+                var y = collide[i].offsetTop - elem.offsetTop;
+                var dis = Math.sqrt(x*x+y*y);
+                if(dis<minDis){
+                    minDis = dis;
+                    index = i;
+                }
+            }
+
+            return collide[index];
+        }
+
+
 
 
 
