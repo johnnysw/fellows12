@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--1.	有一行单词，空格为单词间的间隔，找出其中最长的单词和最短的单词。-->
+
+<script>
+
+    var str = 'abdj jff fhdhfdkj fhdhfdoj kkl jhjb';
+
+    var arr = str.split(' ');  //['abdj','jff','fhdhfdkj']
+    var maxLength = arr[0].length;
+    var max = [arr[0]];
+
+    for(var i=1; i<arr.length; i++){
+        if(arr[i].length > maxLength){
+            maxLength = arr[i].length;
+            max = [arr[i]];
+        }else if(arr[i].length == maxLength){
+            max.push(arr[i]);
+        }
+    }
+
+    console.log(max);
+
+</script>
+
+</body>
+</html>

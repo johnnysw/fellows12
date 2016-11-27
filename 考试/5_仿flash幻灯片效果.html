@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+
+        #container{
+            width: 400px;
+            margin: 100px auto;
+        }
+        #img-box{
+            position: relative;
+            width: 400px;
+            height: 320px;
+        }
+        #img-box img{
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        #prev,#next{
+            width: 200px;
+            height: 320px;
+            position: absolute;
+            top:0;
+        }
+        #prev{
+            left:0;
+        }
+        #next{
+            right: 0;
+        }
+        #prev-btn,#next-btn{
+            position: absolute;
+            top:50%;
+            margin-top: -30px;
+            width: 60px;
+            height: 60px;
+            background-image:url("images/btn.gif") ;
+        }
+        #prev-btn{
+            left:10px;
+        }
+        #next-btn{
+            right: 10px;
+            background-position: 0 -60px;
+        }
+        #txt-box{
+            position: absolute;
+            bottom: 0;
+            left:0;
+            background: #000000;
+            opacity: 0.6;
+            filter:alpha(opacity = 60);
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+
+        }
+        #txt{
+            float: left;
+        }
+        #num{
+            float: right;
+        }
+        #small-box{
+            width: 400px;
+            background: #cccccc;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+        #small-img{
+            width: 800px;
+        }
+        #small-img li{
+            float: left;
+            width: 120px;
+            height: 94px;
+            margin-left: 10px;
+        }
+        #small-img li img{
+            width: 120px;
+            height: 94px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box">
+            <ul>
+                <li><img src="images/1.jpg" alt=""/></li>
+                <li><img src="images/2.jpg" alt=""/></li>
+                <li><img src="images/3.jpg" alt=""/></li>
+                <li><img src="images/4.jpg" alt=""/></li>
+                <li><img src="images/5.jpg" alt=""/></li>
+                <li><img src="images/6.jpg" alt=""/></li>
+            </ul>
+
+            <div id="prev">
+                <span id="prev-btn"></span>
+            </div>
+            <div id="next">
+                <span id="next-btn"></span>
+            </div>
+
+            <div id="txt-box">
+                <span id="txt">hhgg</span>
+                <div id="num">
+                    <span>1</span>/
+                    <span>6</span>
+                </div>
+            </div>
+        </div>
+        <div id="small-box">
+            <ul id="small-img">
+                <li><img src="images/1.jpg" alt=""/></li>
+                <li><img src="images/2.jpg" alt=""/></li>
+                <li><img src="images/3.jpg" alt=""/></li>
+                <li><img src="images/4.jpg" alt=""/></li>
+                <li><img src="images/5.jpg" alt=""/></li>
+                <li><img src="images/6.jpg" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
