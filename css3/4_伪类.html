@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 500px;
+            background: #ff0000;
+        }
+        /*#div1::after{*/
+            /*content: 'aaa';*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+            /*background: #0000ff;*/
+            /*display: block;*/
+        /*}*/
+        #div2,#div3{
+            float: left;
+            width: 200px;
+            height: 100px;
+            background: yellow;
+        }
+        /*#div2,#div3{*/
+            /*position: absolute;*/
+            /*width: 200px;*/
+            /*height: 100px;*/
+            /*background: yellow;*/
+        /*}*/
+        #div3{
+            background: pink;
+        }
+        /*#div4{
+            background: #00ff00;
+            clear: both;
+        }*/
+        #div1::after{
+            content: '';
+            clear: both;
+            width:100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+        <div id="div3"></div>
+       <!-- <div id="div4"></div>-->
+    </div>
+</body>
+</html>

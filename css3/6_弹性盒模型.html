@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 600px;
+            height: 300px;
+            background: #ff0000;
+            display: -webkit-box;
+            /*-webkit-box-orient:vertical;*/
+
+        }
+        #div2{
+            height: 100px;
+            background: #00ff00;
+            -webkit-box-flex: 1;
+            -webkit-box-flex-group:2;
+            /*-webkit-box-flex-group:2;*/
+        }
+        #div3{
+            height: 100px;
+            background: #0000ff;
+            -webkit-box-flex: 2;
+            -webkit-box-flex-group:1;
+        }
+        #div4{
+            height: 100px;
+            background: #000000;
+            -webkit-box-flex: 1;
+            -webkit-box-flex-group:3;
+
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            1111
+        </div>
+        <div id="div3">
+            222
+        </div>
+        <div id="div4">
+            3333
+        </div>
+    </div>
+
+</body>
+</html>

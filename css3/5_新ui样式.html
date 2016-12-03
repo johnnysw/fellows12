@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <title>Multiple backgrounds_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <style>
+        div {
+            width: 400px;
+            height: 150px;
+            border: 1px solid #666;
+            line-height: 150px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 30px;
+            color: #fff;
+            margin: 10px auto;
+        }
+        .toTop {
+            background-image:-webkit-linear-gradient(to top, orange, green);
+            background-image:linear-gradient(to top,orange,green);
+        }
+        .toTop-deg{
+            background-image:-webkit-linear-gradient(0deg, orange, green);
+            background-image:linear-gradient(0deg,orange,green);
+        }
+        .toTop-deg2{
+            background-image:-webkit-linear-gradient(180deg, orange, green);
+            background-image:linear-gradient(180deg,orange,green);
+        }
+        .toTop-deg3 {
+            background-image:-webkit-linear-gradient(-360deg, orange, green);
+            background-image:linear-gradient(-360deg,orange,green);
+        }
+    </style>
+</head>
+<body>
+<div class="toTop">定义多重背景图像</div>
+<div class="toTop-deg2"></div>
+</body>
+</html>
+			
