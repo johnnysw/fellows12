@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        div::after{
+            content: '';
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left:-10px;
+            top:-10px;
+            border-radius: 50%;
+            z-index:1;
+        }
+        #blue{
+            border:10px solid blue;
+            left:0;
+            top:0;
+        }
+        #blue::after{
+            border:10px solid blue;
+            border-bottom-color: transparent;
+        }
+        #yellow{
+            border:10px solid yellow;
+            left:230px;
+            top:0;
+        }
+        #yellow::after{
+            border:10px solid yellow;
+            border-left-color: transparent;
+        }
+        #red{
+            border:10px solid red;
+            left:460px;
+            top:0;
+        }
+        #red::after{
+            border:10px solid red;
+            border-left-color: transparent;
+        }
+        #green{
+            border:10px solid green;
+            top:110px;
+            left:110px;
+        }
+        #black{
+            border:10px solid black;
+            left:340px;
+            top:110px;
+        }
+        #black::after{
+            border:10px solid black;
+            border-right-color: transparent;
+            border-top-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="blue"></div>
+    <div id="yellow"></div>
+    <div id="red"></div>
+    <div id="green"></div>
+    <div id="black"></div>
+</body>
+</html>
