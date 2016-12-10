@@ -2,57 +2,105 @@
 <html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8" />
-    <title>transition-timing-function_CSS参考手册_web前端开发参考手册系列</title>
-    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <title>backface-visibility_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+    <meta name="copyright" content="www.doyoe.com" />
     <style>
-        h1{font-size:16px;}
-        .test{overflow:hidden;width:100%;margin:0;padding:0;list-style:none;}
-        .test li{position:relative;left:8px;width:220px;height:60px;margin:1px 5px;padding:10px;border:1px solid #ddd;background-color:#eee;color:#000;
-            -webkit-transition-duration:3s;
-            -moz-transition-duration:3s;
-            transition-duration:3s;
-            -webkit-transition-property:left;
-            -moz-transition-property:left;
-            transition-property:left;
+        body {
+            -webkit-perspective: 800px;
+            perspective: 800px;
+            -webkit-perspective-origin: 50%;
+            perspective-origin: 50%;
         }
-        .test li:nth-child(1){
-            -webkit-transition-timing-function:linear;
-            -moz-transition-timing-function:linear;
-            transition-timing-function:linear;
+        .cube {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-animation: rotate 5s infinite;
+            animation: rotate 5s infinite;
         }
-        .test li:nth-child(2){
-            -webkit-transition-timing-function:ease;
-            -moz-transition-timing-function:ease;
-            transition-timing-function:ease;
+        .cube > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);
+            background-color: rgba(255, 255, 255, .1);
+            color: gray;
+            font-size: 20px;
+            line-height: 100px;
+            text-align: center;
         }
-        .test li:nth-child(3){
-            -webkit-transition-timing-function:ease-in;
-            -moz-transition-timing-function:ease-in;
-            transition-timing-function:ease-in;
+        .front {
+            -webkit-transform: translatez(50px);
+            transform: translatez(50px);
         }
-        .test li:nth-child(4){
-            -webkit-transition-timing-function:ease-out;
-            -moz-transition-timing-function:ease-out;
-            transition-timing-function:ease-out;
+        .back {
+            -webkit-transform: rotatey(180deg) translatez(50px);
+            transform: rotatey(180deg) translatez(50px);
         }
-        .test li:nth-child(5){
-            -webkit-transition-timing-function:ease-in-out;
-            -moz-transition-timing-function:ease-in-out;
-            transition-timing-function:ease-in-out;
+        .right {
+            -webkit-transform: rotatey(90deg) translatez(50px);
+            transform: rotatey(90deg) translatez(50px);
         }
-        .test:hover li{left:500px;}
+        .left {
+            -webkit-transform: rotatey(-90deg) translatez(50px);
+            transform: rotatey(-90deg) translatez(50px);
+        }
+        .top {
+            -webkit-transform: rotatex(90deg) translatez(50px);
+            transform: rotatex(90deg) translatez(50px);
+        }
+        .bottom {
+            -webkit-transform: rotatex(-90deg) translatez(50px);
+            transform: rotatex(-90deg) translatez(50px);
+        }
+        @-webkit-keyframes rotate {
+            from {
+                -webkit-transform: rotatey(0);
+            }
+            to {
+                -webkit-transform: rotatey(360deg);
+            }
+        }
+        @keyframes rotate {
+            from {
+                transform: rotatey(0);
+            }
+            to {
+                transform: rotatey(360deg);
+            }
+        }
+        .c1 > div {
+            -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+        }
+        .c2 > div {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
     </style>
 </head>
 <body>
-<h1>请将鼠标移动到下面的矩形上：</h1>
-<ul class="test">
-    <li>linear: 线性过渡</li>
-    <li>ease: 平滑过渡</li>
-    <li>ease-in-out: 由慢到快再到慢</li>
-    <li>ease-out: 由快到慢</li>
-    <li>ease-in: 由慢到快</li>
-</ul>
+<div class="cube c1">
+    <div class="front">1</div>
+    <div class="back">2</div>
+    <div class="right">3</div>
+    <div class="left">4</div>
+    <div class="top">5</div>
+    <div class="bottom">6</div>
+</div>
 
+<div class="cube c2">
+    <div class="front">1</div>
+    <div class="back">2</div>
+    <div class="right">3</div>
+    <div class="left">4</div>
+    <div class="top">5</div>
+    <div class="bottom">6</div>
+</div>
 </body>
 </html>
 			
