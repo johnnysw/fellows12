@@ -53,12 +53,34 @@
             }else{
                 //收回
                 for(var i=0; i<aMenu.length; i++){
+                    aMenu[i].style.WebkitTransitionDuration = '1s';
+
                     aMenu[i].style.WebkitTransform = 'translate(0px,0px) rotate(0)'
                 }
                 this.style.WebkitTransform = 'rotateZ(0deg)';
             }
             bFlag = !bFlag;
 
+        }
+
+        for(var i=0; i<aMenu.length; i++){
+            aMenu[i].isClick = false;  //false  代表没有点击  true代表已经点击
+            aMenu[i].onclick = function(){
+                if(!this.isClick){
+                    this.isClick = true;
+                    var _this = this;
+
+                    var currentTransform = this.style.WebkitTransform;
+
+                    setTimeout(function(){
+                        _this.style.WebkitTransform = currentTransform ;
+                        this.isClick = false;
+                    },300);
+
+                    this.style.WebkitTransitionDuration = '0.3s';
+                    this.style.WebkitTransform = currentTransform + 'scale(1.5)';
+                }
+            }
         }
     </script>
 
