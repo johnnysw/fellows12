@@ -61,11 +61,12 @@
                 for(var i=0; i<aLi.length ; i++){
                     if(i<=now){
                         var x = 50*i-160*i;
-                        aLi[i].style.WebkitTransform = "translateX("+x+"px)";
                     }else{
                         var x = (800-(aLi.length-i)*50) - 160*i;
-                        aLi[i].style.WebkitTransform = "translateX("+x+"px)";
                     }
+
+                    aLi[i].style.WebkitTransform = "translateX("+x+"px)";
+
                 }
             }
 
