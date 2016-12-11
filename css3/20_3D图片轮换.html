@@ -77,6 +77,20 @@
                 opacity: 1;
             }
         }
+        .hide{
+            -webkit-animation: hide 1s ease forwards;
+        }
+        @-webkit-keyframes hide {
+            0%{
+                -webkit-transform: rotateX(0deg);
+                opacity: 1;
+            }
+            100%{
+                -webkit-transform: rotateX(-180deg);
+                opacity: 0;
+
+            }
+        }
     </style>
 </head>
 <body>
@@ -94,6 +108,34 @@
             &gt;
         </span>
     </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var aImg = oContainer.getElementsByTagName('img');
+        var oNext = document.getElementById('next');
+        var oPrev = document.getElementById('prev');
+
+        var iNow = 0;
+        oNext.onclick = function(){
+            aImg[iNow].className = 'hide';
+            iNow++;
+            if(iNow == aImg.length){
+                iNow = 0;
+            }
+            aImg[iNow].className = 'show';
+        }
+
+        oPrev.onclick = function(){
+            aImg[iNow].className = 'hide';
+            iNow--;
+            if(iNow == -1){
+                iNow = aImg.length -1;
+            }
+            aImg[iNow].className = 'show';
+        }
+
+
+
+    </script>
 
 
 
