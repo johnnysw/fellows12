@@ -27,6 +27,13 @@
             top:-150px;
             -webkit-transition: all 1s ease;
         }
+        span{
+            position: absolute;
+            width: 125px;
+            height: 125px;
+            background: #ff0000;
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -64,26 +71,47 @@
             for(var i=0; i<24; i++){
                 var oDiv = document.createElement('div');
                 oDiv.className = 'img';
+                oDiv.pos = {
+                    row:Math.floor(i/6),
+                    col:i%6
+                }
 
                 oDiv.style.background = 'url(img/thumbs/'+(i+1)+'.jpg)';
+                oDiv.innerHTML = '<span></span>';
 
 //                oDiv.style.left = col*135+(col+1)*x +"px";
 //                oDiv.style.top = row*135+(row+1)*y+"px";
-
+                oDiv.onclick = fn;
                 oContainer.appendChild(oDiv);
             }
 
             var aDiv = oContainer.getElementsByTagName('div');
             var index = 24;
-            setInterval(function(){
+            var timer = setInterval(function(){
                 index--;
-                var row = Math.floor(index/6);
 
-                var col = index%6;
-                aDiv[index].style.left = col*135+(col+1)*x +"px";
-                aDiv[index].style.top = row*135+(row+1)*y+"px";
+                aDiv[index].style.left = aDiv[index].pos.col*135+(aDiv[index].pos.col+1)*x +"px";
+                aDiv[index].style.top = aDiv[index].pos.row*135+(aDiv[index].pos.row+1)*y+"px";
                 aDiv[index].style.transform = 'rotate('+(Math.random()*40-20)+'deg)';
+                if(index == 0){
+                    clearInterval(timer);
+                }
             },100);
+            function fn(){
+                var disX = (oContainer.offsetWidth - (127*6))/2;
+                var disY = (oContainer.offsetHeight - (127*4))/2;
+
+                for(var i=0; i<aDiv.length; i++){
+                    aDiv[i].style.left = aDiv[i].pos.col*127+disX +"px";
+                    aDiv[i].style.top = aDiv[i].pos.row*127+disY +"px";
+                    aDiv[i].style.WebkitTransform = 'rotate(0deg)';
+                    aDiv[i].style.border = '1px solid #fff';
+                    var oSpan = aDiv[i].getElementsByTagName('span')[0];
+                    oSpan.style.opacity = 1;
+
+                }
+            }
+
         }
 
     </script>
