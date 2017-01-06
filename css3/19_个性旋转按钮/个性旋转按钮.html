@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个性旋转按钮</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #container{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom:20px;
+            right:20px;
+        }
+        #container img{
+            position: absolute;
+            left:0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            -webkit-transition: transform 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img class="menu" src="img/close.png" alt=""/>
+        <img class="menu" src="img/full.png" alt=""/>
+        <img class="menu" src="img/open.png" alt=""/>
+        <img class="menu" src="img/prev.png" alt=""/>
+        <img class="menu" src="img/refresh.png" alt=""/>
+        <img id="home" src="img/home.png" alt=""/>
+    </div>
+
+    <script>
+        var oHome = document.getElementById('home');
+        var aMenu = document.getElementsByClassName('menu');
+
+        var bFlag = false;
+        oHome.onclick = function(){
+            if(!bFlag){
+                //打开
+                for(var i=0; i<aMenu.length; i++){
+                    var x = -180*Math.sin(22.5*i*Math.PI/180);
+                    var y = -180*Math.cos(22.5*i*Math.PI/180);
+
+                    aMenu[i].style.WebkitTransform = 'translate('+x+'px,'+y+'px) rotate(360deg)';
+                }
+                this.style.WebkitTransform = 'rotateZ(360deg)';
+            }else{
+                //收回
+                for(var i=0; i<aMenu.length; i++){
+                    aMenu[i].style.WebkitTransitionDuration = '1s';
+
+                    aMenu[i].style.WebkitTransform = 'translate(0px,0px) rotate(0)'
+                }
+                this.style.WebkitTransform = 'rotateZ(0deg)';
+            }
+            bFlag = !bFlag;
+
+        }
+
+        for(var i=0; i<aMenu.length; i++){
+            aMenu[i].isClick = false;  //false  代表没有点击  true代表已经点击
+            aMenu[i].onclick = function(){
+                if(!this.isClick){
+                    this.isClick = true;
+                    var _this = this;
+
+                    var currentTransform = this.style.WebkitTransform;
+
+                    setTimeout(function(){
+                        _this.style.WebkitTransform = currentTransform ;
+                        _this.isClick = false;
+                    },300);
+
+                    this.style.WebkitTransitionDuration = '0.3s';
+                    this.style.WebkitTransform = currentTransform + 'scale(1.5)';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

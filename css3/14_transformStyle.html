@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            border:1px dotted #000;
+            margin: 100px auto;
+            -webkit-perspective: 800px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            -webkit-transform: rotateY(30deg);
+            /*-webkit-perspective: 800px;*/
+            -webkit-transform-style: preserve-3d;
+        }
+        #div3{
+            width: 200px;
+            height: 200px;
+            background: #0f0;
+            -webkit-transform: rotateY(40deg);
+
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+
+</body>
+</html>

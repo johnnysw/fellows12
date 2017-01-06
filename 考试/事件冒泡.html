@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+
+        </div>
+    </div>
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+
+        oDiv1.onclick = function(){
+            alert('div1');
+        }
+        oDiv2.onclick = function(e){
+            e = e || window.event;
+            alert('div2');
+            //标准
+            e.stopPropagation();
+            //ie
+            e.cancelable = true;
+
+            e.preventDefault();
+
+            e.returnValue = false;
+
+            return false;
+        }
+
+
+    </script>
+
+</body>
+</html>

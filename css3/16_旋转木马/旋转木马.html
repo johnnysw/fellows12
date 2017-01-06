@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #stage{
+            width: 1000px;
+            height: 300px;
+            background: #cccccc;
+            margin:50px auto;
+            box-shadow:0 0 3px 3px rgba(0,0,0,0.5);
+            overflow: hidden;
+            /*border:1px solid #000;*/
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin: center -20%;
+        }
+        #container{
+            width: 128px;
+            height: 100px;
+            /*background: #ff0000;*/
+            margin:100px auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            transition: transform 1s ease;
+        }
+        #container img{
+            width: 128px;
+            height: 100px;
+            position: absolute;
+            left:0;
+            top:0;
+            -webkit-transition:transform 1s ease ;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="stage">
+        <div id="container">
+
+        </div>
+    </div>
+
+    <script>
+
+        var oContainer = document.getElementById('container');
+
+        var x = 64/Math.tan(20*(Math.PI/180)) +20;
+        var idx = 0;
+        var count = 0;
+
+        for(var i=0; i<9; i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                count++;
+                if(count == 9){
+                    var aImg = oContainer.getElementsByTagName('img');
+
+                    for(var i=0; i<9;i++){
+                        (function(index){
+                            setTimeout(function(){
+                                var j = 8-index;
+                                aImg[j].style.WebkitTransform = 'rotateY('+(-j*40)+'deg) translateZ('+x+'px)';
+                            },100*(i+1));
+                        })(i)
+                    }
+                }
+            }
+            oImg.src='img/'+(i+1)+'.jpg';
+
+            oContainer.appendChild(oImg);
+
+        }
+
+       /* var html = '';
+        for(var i=0; i<9;i++){
+            html += "<img  src='img/"+(i+1)+".jpg'/>";
+//            html += "<img src='https://gw.alicdn.com/bao/uploaded/TB1VwAgOpXXXXciXpXXSutbFXXX.jpg_240x240q90.jpg'/>";
+
+        }
+        oContainer.innerHTML = html;*/
+
+
+        oContainer.onclick = function(){
+            idx++;
+            oContainer.style.transform = "rotateY("+idx*40+"deg)";
+        }
+
+//        console.log(aImg[0].offsetWidth);
+        //var index = 9;
+        /*var timer = setInterval(function(){
+            index--;
+            if(index < 0){
+                clearInterval(timer);
+            }else{
+                aImg[index].style.WebkitTransform = 'rotateY('+(-index*40)+'deg) translateZ('+x+'px)';
+            }
+        },100)*/
+
+
+        /*var a = function(){
+
+        }
+        a();
+
+        (function(){
+
+        })();*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

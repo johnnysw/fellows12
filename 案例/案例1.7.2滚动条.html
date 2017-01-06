@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 400px;
+            height: 500px;
+            background: red;
+            overflow: hidden;
+        }
+        #content{
+            width: 380px;
+            background: blue;
+            float: left;
+            position: relative;
+        }
+        #scroll-bar{
+            width:20px;
+            height: 500px;
+            background: yellow;
+            float: left;
+            position: relative;
+        }
+        #scroll-btn{
+            width: 20px;
+            height: 30px;
+            background: red;
+            position: absolute;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            11你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你
+            好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好22
+
+        </div>
+        <div id="scroll-bar">
+            <span id="scroll-btn"></span>
+        </div>
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var oScrollBtn = document.getElementById('scroll-btn');
+        var oScrollBar = document.getElementById('scroll-bar');
+        var oContent = document.getElementById('content');
+        oScrollBtn.onmousedown = function(e){
+            e = e || window.event;
+            var iDIsY = e.clientY - oScrollBtn.offsetTop;
+
+            document.onmousemove = function(event){
+                event = event || window.event;
+
+                var iTop = event.clientY - iDIsY;
+                if(iTop < 0){
+                    iTop = 0;
+                }
+                if(iTop > oScrollBar.offsetHeight - oScrollBtn.offsetHeight ){
+                    iTop = oScrollBar.offsetHeight - oScrollBtn.offsetHeight;
+                }
+
+                oScrollBtn.style.top =iTop+"px";
+                var scale = oScrollBtn.offsetTop / (oScrollBar.offsetHeight - oScrollBtn.offsetHeight);
+                var cTop = scale * (oContent.offsetHeight - oContainer.offsetHeight);
+
+                oContent.style.top = -cTop +"px";
+                return false;
+            }
+        }
+        document.onmouseup = function(){
+            document.onmousemove = null;
+        }
+
+
+    </script>
+
+</body>
+</html>

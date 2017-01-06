@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p{
+            width: 200px;
+        }
+        p::first-line{
+            background: #ff0000;
+        }
+        ul:first-of-type{
+            color: #f00;
+        }
+        /*ul li:first-child{*/
+        /*color: #f00;*/
+        /*}*/
+        ul li:nth-child(2n+1){
+          color: #f00;
+        }
+    </style>
+</head>
+<body>
+<p>sss</p>
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+</ul>
+    <ul>
+        <li>列表项一</li>
+        <li>列表项二</li>
+        <li>列表项三</li>
+        <li>列表项四</li>
+    </ul>
+</body>
+</html>

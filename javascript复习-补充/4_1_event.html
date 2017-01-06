@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+    <script>
+//        e.clientX
+//        e.clientY
+
+
+        var oDiv1 = document.getElementById('div1');
+        document.onkeydown = function(e){
+            e = e || window.event;
+            //var oTarget = e.target || e.srcElement;
+           // console.log(e.altKey);
+           // console.log(oTarget);
+           // console.log(e.offsetX+":"+ e.offsetY);
+            var key = e.which || e.keyCode;
+            console.log(key);
+
+
+
+        }
+    </script>
+
+
+
+</body>
+</html>

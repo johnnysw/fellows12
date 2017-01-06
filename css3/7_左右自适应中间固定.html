@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        /*定位*/
+       /* #div1{
+            width: 200px;
+            height: 300px;
+            background: #ff0000;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        #div2{
+            position: absolute;
+            left:200px;
+            right: 200px;
+            top:0;
+            background: #00ff00;
+            height: 300px;
+        }
+        #div3{
+            width: 200px;
+            height: 300px;
+            background: #ff0000;
+            position: absolute;
+            right:0;
+            top:0;
+        }*/
+        /*float*/
+        /*#div1 {
+            width: 200px;
+            height: 300px;
+            background: #ff0000;
+            float: left;
+        }
+        #div2 {
+            /!*float: left;*!/
+            /!*width: 100%;*!/
+            height: 300px;
+            background: #00ff00;
+            margin:0 210px 0 210px;
+        }
+        #div3 {
+            width: 200px;
+            height: 300px;
+            background: #0000ff;
+            float: right;
+        }*/
+        body{
+            display: -webkit-box;
+        }
+        #div1 {
+            /*width: 200px;*/
+            height: 300px;
+            background: #ff0000;
+            -webkit-box-flex: 1;
+        }
+        #div2 {
+            height: 300px;
+            background: #00ff00;
+            /*-webkit-box-flex: 1;*/
+            width: 200px;
+        }
+        #div3 {
+            /*width: 200px;*/
+            height: 300px;
+            background: #0000ff;
+            -webkit-box-flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+</body>
+</html>

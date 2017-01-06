@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function test(n,m){
+        var result = [];
+
+        for(var i=n;i<=m;i++){
+            //10  [1,0] [0,1]
+            var sNum = i.toString();
+            var arr = sNum.split('');  //[1,0]
+            arr.reverse();  //[0,1]
+            var rNum = arr.join('');  //01 " "  ""
+            if(sNum == rNum){
+                result.push(i);
+            }
+        }
+        return result;
+    }
+    console.log(test(3,100));
+
+
+//    var str = "abc";
+//
+//   console.log(str.split(''))
+//console.log(str);
+
+</script>
+
+</body>
+</html>

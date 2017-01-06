@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div[class*="a"] {
+            border: 2px solid #000;
+        }
+        #div2 div[class|="a"] {
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<!--<div class="a">1</div>-->
+<!--<div class="ba">2</div>-->
+<!--<div class="a b">3</div>-->
+
+<div id="div2">
+    <div class="a-test">1</div>
+    <div class="ba-test">2</div>
+    <div class="c-test">3</div>
+</div>
+
+</body>
+</html>

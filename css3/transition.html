@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            /*-webkit-transition: all 2s ease 1s;*/
+            -webkit-transition-property:width;
+            -webkit-transition-duration:2s;
+            -webkit-transition-timing-function:ease;
+            -webkit-transition-delay:2s;
+
+
+        }
+        /*#div1:hover{*/
+            /*opacity: 0.5;*/
+            /*width: 500px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+    <script>
+        var oDiv = document.getElementById('div1');
+        oDiv.onclick = function(){
+            this.style.width = 600+"px";
+        }
+    </script>
+
+</body>
+</html>

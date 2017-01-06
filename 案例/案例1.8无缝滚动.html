@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            margin:50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            /*width: 520px;*/
+            position: absolute;
+        }
+        #content li{
+            width: 120px;
+            height: 120px;
+            background: #000;
+            font-size: 32px;
+            text-align: center;
+            line-height: 120px;
+            color:#fff;
+            float: left;
+            margin-right: 10px;
+
+        }
+        #arrow{
+            position: absolute;
+            bottom: 20px;
+            left:50%;
+            margin-left: -105px;
+        }
+        #arrow span{
+            width: 100px;
+            height: 40px;
+            background: #ccc;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrow">
+            <span id="left">&lt;&lt;向左</span>
+            <span id="right">&gt;&gt;向右</span>
+        </div>
+    </div>
+    <script>
+        var oContent = document.getElementById('content');
+        //复制一组li  追加在后边
+        oContent.innerHTML = oContent.innerHTML + oContent.innerHTML;
+        var aLi = oContent.getElementsByTagName('li');
+        var oRBtn = document.getElementById('right');
+        var oLBtn = document.getElementById('left');
+
+        //设置oContent宽度
+        oContent.style.width = aLi.length * (aLi[0].offsetWidth+10)+"px";
+        var speed = -2;
+        setInterval(function(){
+            //left值 到达oContent中间的点，left值 设置成0
+            if(oContent.offsetLeft <= -oContent.offsetWidth/2){
+                oContent.style.left = 0;
+            }
+
+            if(oContent.offsetLeft >0){
+                oContent.style.left = -oContent.offsetWidth/2 +"px";
+            }
+
+            oContent.style.left = oContent.offsetLeft + speed +"px";
+        },10);
+
+        oRBtn.onmouseover = function(){
+            speed = 2;
+        }
+        oLBtn.onmouseover = function(){
+            speed = -2;
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>
