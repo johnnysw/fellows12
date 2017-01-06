@@ -1,0 +1,89 @@
+/*样式重置*/
+*{
+    margin: 0;
+    padding: 0;
+}
+ul, ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    border: 0;
+}
+/*公共样式*/
+.wrapper{
+    padding: 0 22px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+#adv{
+    height: 40px;
+    background: #444;
+    color: #a8a8aa;
+    line-height: 40px;
+    -webkit-transition: transform 1s ease;
+}
+#adv.moveOut{
+    -webkit-transform: translateY(-40px);
+}
+#nav{
+    background: rgba(0,0,0,0.8);
+    height: 44px;
+}
+#nav-header, #nav-list{
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-box-pack: justify;
+    box-pack: justify;
+}
+.pad{
+    -webkit-box-orient: vertical;
+    background: #000000;
+}
+#nav-header{
+    display: none;
+}
+/*使用text-align: justify来实现两端对齐效果*/
+/*#nav-list{
+    text-align: justify;
+}
+#nav-list:after{
+    content: '';
+    width: 100%;
+    display: inline-block;
+}*/
+
+#nav li a{
+    display: inline-block;
+    padding: 0 10px;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+}
+#nav .logo{
+    background: url(../img/apple_logo.svg) no-repeat;
+}
+#nav .search{
+    background: url(../img/search.svg) no-repeat;
+}
+#nav .bag{
+    background: url(../img/bag.svg) no-repeat;
+}
+
+/*媒体查询*/
+@media  screen and ( max-width: 767px){
+    #nav-header{
+        display: -webkit-box;
+    }
+    /*#nav-list{
+        -webkit-box-orient: vertical;
+        background: #000000;
+    }*/
+    #nav li{
+
+    }
+}
+
