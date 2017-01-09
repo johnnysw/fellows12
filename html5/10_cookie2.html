@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+   // document.cookie = 'name=zhangsan';
+   // document.cookie = 'age=18; expires='+date;
+
+    function setCookie(key,value,day){
+
+        var str = key+"="+value+";";
+        if(day){
+            var date = new Date();
+
+            date.setDate(date.getDate()+day);
+
+            str+= 'expires='+date;
+        }
+
+        document.cookie = str;
+
+
+    }
+    setCookie('name','lisi',7);
+
+    function getCookie(key){
+        //'age=18; name=lisi'
+        var str = document.cookie;
+        var arr = str.split('; ')  //['age=18','name=lisi']
+
+        for(var i=0; i<arr.length; i++){
+            var arr2 = arr[i].split('=');  //['name','lisi']
+
+            if(arr2[0] == key){
+                return arr2[1];
+            }
+        }
+    }
+    console.log(getCookie('name'));
+
+    function removeCookie(key){
+        setCookie(key,'',-1);
+    }
+    removeCookie('name');
+
+
+</script>
+
+</body>
+</html>
