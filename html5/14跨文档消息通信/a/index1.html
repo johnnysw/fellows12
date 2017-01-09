@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<input type="button" id="btn" value="click">
+
+	<script>
+	//jsonp
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var script = document.createElement('script');
+
+		script.src="http://www.b.com/index1.php?name=lisi&age=10&callback=bb";
+
+		document.body.appendChild(script);
+	}
+		function bb(data){
+			alert(data.age+"aa");
+		}
+	</script>
+	
+
+
+
+
+
+</body>
+</html>

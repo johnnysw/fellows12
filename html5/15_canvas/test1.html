@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: #000000;
+        }
+        canvas{
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cvs"></canvas>
+
+    <script>
+
+        var oCanvas = document.getElementById('cvs');
+
+        var context = oCanvas.getContext('2d');
+
+//        context.strokeStyle = '#f00';
+        /*context.fillStyle = '#f00';
+        context.lineWidth = 5;
+
+        context.beginPath()
+
+
+        context.moveTo(20,20);
+        context.lineTo(50,100);
+        context.lineTo(150,100);
+//        context.lineTo(20,20);
+
+        context.closePath();
+        context.stroke();*/
+
+//        context.arc(150,75,30,0,0.5*Math.PI,true);
+
+        var img = new Image();
+        img.onload = function(){
+            context.drawImage(img,30,50);
+        }
+        img.src="close.png";
+
+        context.stroke();
+
+
+        //context.fill();
+
+
+    </script>
+
+</body>
+</html>
