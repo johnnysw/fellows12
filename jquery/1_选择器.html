@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="div1">
+    <p class="p1">aaaa
+    </p>
+    <p>aaaa</p>
+    <div id="div2">hhggg</div>
+    <p>abbbbbaaa</p>
+
+</div>
+
+<a href="example.html" hreflang="en">Some text</a>
+
+<a href="example.html" hreflang="en-UK">Some other text</a>
+
+<a href="example.html" hreflang="en">will not be outlined</a>
+
+<div id="div3">
+    <ul>
+        <li></li>
+        <li>002</li>
+        <li class="aa">003</li>
+        <li>003</li>
+        <li>003</li>
+
+    </ul>
+    <p>pppp</p>
+</div>
+<input type="text"/><input type="password"/>
+
+<input type="button" value="click"/>
+<input type="button" value="click" disabled/>
+<input type="file"/>
+<select name="" id="">
+    <option value="">111</option>
+    <option value="" selected>222</option>
+    <option value="">12211</option>
+</select>
+<script src="jquery-1.12.4.js"></script>
+
+<script>
+   var $div = $("#div1");
+   var $p = $(".p1");
+//   $('.p1 ~ p').css('background','red');
+//    $("[id]").css('background','red');
+
+//    $('a[hreflang!="en"]').css('background','red');
+//    $("#div3 p:first-child").css('background','red');
+
+//    $("#div3 p:first-of-type").css('background','red');
+
+//    $("#div3 li:nth-child(2n)").css('background','green');
+//    $("#div3 li:nth-child(2n-1)").css('background','green');
+//    $('#div3 li:eq(1)').css('background','yellow');
+//   $('#div3 li:even').css('background','yellow');
+//   $('#div3 li:not(".aa")').css('background','yellow');
+    $("ul:has('.aa')").css('background','yellow');
+
+//    $('input:checked')
+
+//    $('input')
+</script>
+</body>
+</html>

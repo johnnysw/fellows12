@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="div1">
+    1111
+</div>
+<script src="jquery-1.12.4.js"></script>
+
+<script>
+
+    var oDiv1 = document.getElementById('div1');
+
+    console.log(oDiv1.innerHTML);
+
+    console.log($(oDiv1).html());
+
+
+    var $div1 = $('#div1');
+
+//    console.log($div1[0].innerHTML);
+    console.log($div1.get(0).innerHTML);
+
+</script>
+</body>
+</html>

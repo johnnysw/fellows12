@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            padding: 20px;
+            border:5px solid #000;
+            margin: 30px;
+            position: relative;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background: #00ff00;
+            position: absolute;
+            left:50px;
+            top:50px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="click"/>
+<div id="div1" aa="bb" class="bb aa">jkkhjjhkhjkh</div>
+<input type="checkbox" checked/>
+<input type="text" id="txt" value="abc"/>
+
+
+
+<div id="div2">
+    <div id="div3"></div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+//   console.log( $('#div1').attr('id')) ;
+
+//    $('#div1').removeAttr('id') ;
+//
+//var oTxt = document.getElementById('txt');
+//console.log(oTxt.value);
+//
+//console.log($('#txt').val());
+//   $('#div1').attr('id','div00000');
+
+//$('#btn').on('click',function(){
+//    $('#txt').toggleClass('aa');
+//})
+
+/*$('#div1').css({
+    'background':'red',
+    'border':'1px solid #000',
+    'width':'200px'
+});*/
+
+
+
+/*  console.log( $('#div1').hasClass('aa'));
+//$div = $('#div1');
+$('#div1').attr('aa','xx')
+        .css('background','red')
+        .css('border','1px solid #000');*/
+
+
+/*
+    console.log($('#div2').height(200));
+console.log($('#div2').innerHeight());
+console.log($('#div2').outerHeight(true));
+*/
+
+//    var oDiv3 = document.getElementById('div3');
+//
+//    console.log(oDiv3.offsetLeft);
+
+//    console.log($('#div3').position().left);
+    $(window).on('scroll',function(){
+        console.log($(this).scrollTop());
+    });
+//    onscroll
+</script>
+
+</body>
+</html>

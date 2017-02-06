@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="div1" class="xx">
+        <ul>
+            <li>001</li>
+            <li class="aa">002</li>
+            <li>003</li>
+            <li>003</li>
+            <li class="cc">003</li>
+            <li>003</li>
+            <li>003</li>
+        </ul>
+        <p>shshfilu</p>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+
+        //$('li').eq(0).css('background','red');
+//        $('li').filter('.aa').css('background','red');
+//        $('#div1 ul').has('.aa').css('background','red');
+
+//       console.log( $('#div1').is('.xx'));
+
+//        $('li').not('.aa').css('background','red');
+//        $('li').slice(1).css('background','red');
+
+   /* $('li').add('p').css('background','red');
+    $('li,p')*/
+//        $('li').css()
+       /* $('li').each(function(index,elem){
+//            this
+            console.log($(elem));
+        })*/
+//        $('#div1').find('.aa').css('background','red');
+
+//        $('.aa').nextUntil('.cc').css('background','red');
+        $('.aa').next().css('background','red').end().height(300);
+
+    </script>
+
+</body>
+</html>
