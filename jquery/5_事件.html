@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div2{
+            background: #f00;
+            width: 200px;
+            height: 200px;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background: #0f0;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="div1">
+    <input id="btn" type="button" value="click"/>
+    <input id="txt" type="text"/>
+    <ul>
+        <li>0014</li>
+        <li>0024</li>
+
+    </ul>
+    <select name="" id="">
+        <option value="11">11</option>
+        <option value="11">22</option>
+
+        <option value="11">33</option>
+
+    </select>
+
+</div>
+<div id="div2">
+    <div id="div3"></div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+   /* $('#div1').click(function(){
+
+    });
+
+    $('#div1').on('click',function(){
+        alert(111);
+    });
+
+    $('#div1').live('click',function(){
+
+    })*/
+/*   $('#btn').click(function(){
+    $('ul').append('<li>'+Math.random()+'</li>');
+    });
+
+    //事件委托  事件代理
+    $('ul').on('click','li',function(){
+    alert($(this).html());
+    });*/
+   /*var a = function(){
+       alert('aa');
+   }
+   var b = function(){
+       alert('aa');
+   }
+   console.log(a == b);
+
+   var fn = function(){
+       alert($(this).html());
+   }
+
+    $('li').on('click',fn);
+   $('li').off('click',fn);*/
+
+    /*$('li').one('click',function(e){
+
+        alert(11);
+        e.target
+
+        e.preventDefault();
+
+        e.stopPropagation();
+
+       /!* e.stopPropagation();
+        e.cancelBubble = true;*!/
+
+//        return false;
+    })*/
+
+    $('#txt').on('focus',function(){
+        $(this).after('<span>000</span>');
+    })
+
+    $('#btn').on('click',function(){
+//        $('#txt').trigger('focus');
+        $('#txt').triggerHandler('focus');
+    })
+
+  /*  $('#div2').on('mouseover',function(){
+        console.log('in')
+    }).on('mouseout',function(){
+        console.log('out');
+    })*/
+
+  /* $('#div2').hover(function(){
+       console.log('div2 in')
+   },function(){
+       console.log('div2 out');
+   })*/
+    /* $('#div2').on('mouseover',function(){
+        console.log('div2 in')
+    }).on('mouseout',function(){
+        console.log('div2 out');
+    })
+   $('#div3').on('mouseover',function(){
+       console.log('div3 in')
+   }).on('mouseout',function(){
+       console.log('div3 out');
+   })*/
+
+   $('#div2').on('mouseenter',function(){
+       console.log('div2 in')
+   }).on('mouseleave',function(){
+       console.log('div2 out');
+   })
+   $('#div3').on('mouseenter',function(){
+       console.log('div3 in')
+   }).on('mouseleave',function(){
+       console.log('div3 out');
+   })
+
+
+    $(document).on('keydown',function(e){
+        alert(e.which);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
