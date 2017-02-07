@@ -9,11 +9,11 @@
   $(function(){
      //全选
      $("#CheckedAll").click(function(){
-	     $('[name=items]:checkbox').attr('checked', true);
+	     $('[name=items]:checkbox').prop('checked', true);
 	 });
 	 //全不选
      $("#CheckedNo").click(function(){
-	    $('[type=checkbox]:checkbox').attr('checked', false);
+	    $('[type=checkbox]:checkbox').prop('checked', false);
 	 });
 	 //反选
      $("#CheckedRev").click(function(){

@@ -10,9 +10,9 @@ $(function(){
      //全选
      $("#CheckedAll").click(function(){
 			if(this.checked){				 //如果当前点击的多选框被选中
-				 $('input[type=checkbox][name=items]').attr("checked", true );
+				 $('input[type=checkbox][name=items]').prop("checked", true );
 			}else{								
-			     $('input[type=checkbox][name=items]').attr("checked", false );
+			     $('input[type=checkbox][name=items]').prop("checked", false );
 			}
 	 });
 	 $('input[type=checkbox][name=items]').click(function(){
@@ -24,9 +24,9 @@ $(function(){
 			   });
 
 			   if( flag ){
-					 $('#CheckedAll').attr('checked', true );
+					 $('#CheckedAll').prop('checked', true );
 			   }else{
-					 $('#CheckedAll').attr('checked', false );
+					 $('#CheckedAll').prop('checked', false );
 			   }
 	 });
 	  //输出值
