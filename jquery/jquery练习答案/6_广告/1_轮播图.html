@@ -403,31 +403,31 @@
     <script src="../../jquery-1.12.4.js"></script>
     <script>
         var index = 0;
+        var timer;
 
         $('#tab li').on('click',function(){
             $(this).addClass('selected').siblings().removeClass('selected');
             $('.main').eq($(this).index()).show().siblings().hide();
             index = $(this).index();
         });
-        var timer = setInterval(function(){
-            index++;
-            if(index == $('#tab li').size()){
-                index = 0;
-            }
-            $('#tab li').eq(index).trigger('click');
-        },1000);
-
-        $('#content').hover(function(){
-            clearInterval(timer);
-        },function(){
-            var timer = setInterval(function(){
+        function run(){
+            timer = setInterval(function(){
                 index++;
                 if(index == $('#tab li').size()){
                     index = 0;
                 }
                 $('#tab li').eq(index).trigger('click');
             },1000);
+        }
+        run();
+
+        $('#content').hover(function(){
+            clearInterval(timer);
+        },function(){
+            run();
         });
+
+
 
 
 
