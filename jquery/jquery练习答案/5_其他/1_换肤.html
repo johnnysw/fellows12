@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        *{
+            margin:0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            width: 220px;
+            height: 25px;
+            border:1px solid #eee;
+        }
+        
+        li{
+            float: left;
+            width: 14px;
+            height: 14px;
+            background-image: url("theme.gif");
+            background-position: 0 0;
+            margin:7px 7px 0 0;
+        }
+        .skin0{
+            background-position: 0 0;
+        }
+        .skin1{
+            background-position: -100px 0;
+        }
+        .skin2{
+            background-position: -80px 0;
+        }
+        .skin3{
+            background-position: -60px 0;
+        }
+        .skin4{
+            background-position: -40px 0;
+        }
+        .skin5{
+            background-position: -20px 0;
+        }
+        .skin0.selcted{
+            background-position: 0 -15px;
+        }
+        .skin1.selcted{
+            background-position: -100px -15px;
+        }
+        .skin2.selcted{
+            background-position: -80px -15px;
+        }
+        .skin3.selcted{
+            background-position: -60px -15px;
+        }
+        .skin4.selcted{
+            background-position: -40px -15px;
+        }
+        .skin5.selcted{
+            background-position: -20px -15px;
+        }
+
+        .news{
+            width: 95px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            float: left;
+            margin:20px;
+            background: #eee;
+
+        }
+
+        .news.skin0{
+            background: #999999;
+        }
+        .news.skin1{
+            background: #BB3BD9;
+        }
+        .news.skin2{
+            background: #E31559;
+        }
+        .news.skin3{
+            background: #08BECE;
+        }
+        .news.skin4{
+            background: #FBA60A;
+        }
+        .news.skin5{
+            background: #AFD400;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li class="skin0 selcted"></li>
+    <li class="skin1"></li>
+    <li class="skin2"></li>
+    <li class="skin3"></li>
+    <li class="skin4"></li>
+    <li class="skin5"></li>
+</ul>
+
+<div id="content">
+    <div class="news skin0">时事新闻</div>
+    <div class="news">娱乐新闻</div>
+</div>
+
+
+<script src="../../jquery-1.12.4.js"></script>
+<script>
+    $('li').on('click',function(){
+        var skin = $(this).attr('class');
+        $(this).addClass('selcted').siblings().removeClass('selcted');
+
+        $('.news').attr('class','news '+skin);
+        setCookie('color',skin,7);
+    });
+
+    var color = getCookie('color');  //skin0
+
+    $('li.'+color).trigger('click');
+
+
+
+
+    function setCookie(key,value,day){
+
+        var str = key+"="+value+";";
+        if(day){
+            var date = new Date();
+
+            date.setDate(date.getDate()+day);
+
+            str+= 'expires='+date;
+        }
+
+        document.cookie = str;
+
+
+    }
+
+    function getCookie(key){
+        //'age=18; name=lisi'
+        var str = document.cookie;
+        var arr = str.split('; ')  //['age=18','name=lisi']
+
+        for(var i=0; i<arr.length; i++){
+            var arr2 = arr[i].split('=');  //['name','lisi']
+
+            if(arr2[0] == key){
+                return arr2[1];
+            }
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
