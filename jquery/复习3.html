@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1" class="bb">div</div>
+    <input type="text" id="username">
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        var $div1 = $("#div1");
+        console.log($div1.get(0).innerHTML);
+//        $(oDiv1).css();
+//        oDiv1.aa = "11";//属性
+//        console.log(oDiv1.aa);
+//
+//        oDiv1.setAttribute("bb", "22");//特性
+//        console.log(oDiv1.getAttribute("bb"));
+
+        $(function(){
+
+            $div1.attr("aa", "11");
+            $div1.prop("bb", "22");
+
+            console.log($div1.attr("aa"));
+            console.log($div1.prop("bb"));
+
+//            $("#username").val("123");
+//            $div1.addClass("aa");
+//            $div1.css("background", "#f00");
+            $div1.css({
+                background: "#f00",
+                border: "5px solid #000"
+            }).css("height", function(){
+
+                return 200;
+            });
+
+
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       /* #div1 > div{!* 子代选择器，有兼容性问题 *!
+
+        }
+
+        #div1 div{!* 后代选择器 *!
+
+        }
+        #div1.aa{!* 多类选择器 *!
+            background: #ff0000;
+        }*/
+
+
+
+    </style>
+</head>
+<body>
+    <ul id="tab">
+        <li>001</li>
+        <li class="aa">002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+
+    <button id="btn">click</button>
+    <div id="div1" class="aa">divdiv</div>
+
+
+
+    <script src="jquery-1.12.4.js"></script>
+
+    <script>
+        $(function(){
+//            $("#tab .aa ~ li").css("background", "#f00");
+//            $("#tab li:eq(4)").css("background", "#f00");
+//            $("#tab li:gt(1)").css("background", "#f00");
+//            $("#tab li:not(.aa)").css("background", "#f00");
+//
+//            $("#btn").on("click", function(){
+//                $("#div1:target").css("background", "#f00");
+//            });
+
+//            $("#tab li:contains(2)").css("background", "#f00");
+            $("[class=aa]").css("background", "#f00");
+
+        });//文档就绪函数
+
+//        $(document).ready(function(){
+//        });
+
+
+
+//        var a = 5;
+//        alert(window.a);
+//
+//
+//
+//
+//        (function(){
+//            var a = 5;
+//
+//        })();//函数立即调用
+
+
+
+
+
+
+    </script>
+</body>
+</html>

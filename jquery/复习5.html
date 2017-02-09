@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background: #00ff00;
+            position: relative;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div2">
+        <div id="div1"></div>
+    </div>
+
+    <ul id="tab">
+        <li>001</li>
+        <li class="aa">002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            console.log($("#div1").offset());
+            console.log($("#div1").position());
+            console.log($("#div1").offsetParent());
+
+            $("#div1").text("<p>ppp</p>");
+
+//            $("#tab li").filter(".aa").css("background", "#f00");
+            $("#tab li").each(function(index, elem){
+                console.log(index + ":" + elem.innerHTML);
+            });
+
+        });
+    </script>
+</body>
+</html>
