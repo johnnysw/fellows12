@@ -1,0 +1,42 @@
+.header{
+    height: 105px;
+    background: #ff0000;
+}
+.header-box{
+    width: 990px;
+    height: 105px;
+    background: #00ff00;
+    margin:0 auto;
+}
+.content{
+    width: 990px;
+    margin:0 auto;
+}
+.side{
+    width: 185px;
+    height: 500px;
+    background: #00A5FF;
+    float: left;
+}
+.content-box{
+    width: 786px;
+    height: 500px;
+    background: #444444;
+    float: right;
+}
+.top{
+    height: 320px;
+    background: #BE46D8;
+}
+.c-left{
+    width: 550px;
+    height: 320px;
+    float: left;
+    background: #B1D410;
+}
+.c-right{
+    width: 230px;
+    height: 320px;
+    float: right;
+    background: #E31559;
+}
