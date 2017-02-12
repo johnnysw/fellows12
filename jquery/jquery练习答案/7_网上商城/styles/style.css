@@ -40,3 +40,21 @@
     float: right;
     background: #E31559;
 }
+.img-con{
+    height: 176px;
+    overflow: hidden;
+    width: 230px;
+}
+
+.img-con img {
+    -webkit-transition:1s all;
+    -moz-transition:1s all;
+    -o-transition:1s all;
+    transition:1s all;
+}
+.img-con:hover img {
+    -webkit-transform:rotate(720deg);
+    -moz-transform:rotate(720deg);
+    -o-transform:rotate(720deg);
+    transform:rotate(720deg);
+}
