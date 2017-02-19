@@ -16,7 +16,7 @@
     filter: alpha(opacity = 50);
     position: absolute;
     left:0;
-    top:0;
+    top:50px;
     right: 0;
     bottom:0;
 }

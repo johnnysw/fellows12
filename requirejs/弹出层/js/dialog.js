@@ -10,6 +10,7 @@ define(['jquery'],function($){
         },
 
         open:function(options){
+            var _this = this;
             $.extend(this.defaultVal,options);
             console.log(this.defaultVal); //{width: 800, height: 500, title: "呵呵", content: "hjsgdkhag "}
             var str = '<div class="dialog-container">'
@@ -29,14 +30,13 @@ define(['jquery'],function($){
                     'margin-left':-this.defaultVal.width/2,
                     'margin-top':-this.defaultVal.height/2
                 });
+            $('.dialog-close').on('click',function(){
+                _this.close();
+            });
         },
         close:function(){
-            $('.dialog-close').on('click',function(){
-                $('.dialog-container').remove();
-            });
+            $('.dialog-container').remove();
         }
     }
-    /*$('input').on('click',function(){
-        alert('ddd');
-    });*/
+
 });
