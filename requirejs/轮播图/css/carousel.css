@@ -1,7 +1,6 @@
 .carousel-container{
     width: 680px;
     height:344px;
-    margin:100px auto;
     position: relative;
 }
 .carousel-content img{
@@ -27,6 +26,9 @@
     margin-right: 5px;
     line-height: 20px;
     text-align: center;
+}
+.carousel-tab li.circle{
+    border-radius: 50%;
 }
 .carousel-tab li.selected{
     background: orange;
