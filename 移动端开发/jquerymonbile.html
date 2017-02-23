@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+    <script src="web相册/js/jquery-1.12.4.js"></script>
+    <script src="web相册/js/jquery.mobile.custom.min.js"></script>
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+    <script>
+
+        $(function(){
+           /* $('#div1').on('tap',function(){
+                console.log(1111111);
+            });*/
+
+            /*touchStart
+            touchEnd*/
+             $('#div1').on('swipeleft',function(){
+                console.log(1111111);
+             });
+
+
+
+
+
+        })
+    </script>
+
+
+</body>
+</html>
