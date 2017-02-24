@@ -52,9 +52,9 @@
     var str7 = 'abc hsdgh anc kkalc';
 
     var reg7 = /a.c/g;
-
+    //exec在g全局搜索的时候也 只返回第一个结果
     console.log(reg7.exec(str7));
-
+    //match 在g全局搜索的时候 会返回所有的结果
    console.log(str7.match(reg7)) ;
 
 
