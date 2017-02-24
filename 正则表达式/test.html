@@ -29,13 +29,41 @@
 
     function trimStr(str){
         var reg = /^\s+|\s+$/g;
+//        var reg = /\b\s+/g
         str = str.replace(reg,'');
         return str;
     }
 
     var str3 = '  abb c   ';
+    str3 = trimStr(str3);
 
-    console.log(trimStr(str3).length);
+    console.log('qq'+str3+"qq"+str3.length);
+
+
+    var str4 = 'abba';
+
+    var reg4 = /(\w)(\w)\2\1/;
+
+    console.log(reg4.exec(str4));
+
+    var reg5 = /abc/ig;
+    var reg6 = new RegExp('abc','ig');
+
+    var str7 = 'abc hsdgh anc kkalc';
+
+    var reg7 = /a.c/g;
+
+    console.log(reg7.exec(str7));
+
+   console.log(str7.match(reg7)) ;
+
+
+
+
+
+
+
+
 
 </script>
 
