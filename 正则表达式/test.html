@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="aa bb"></div>
+<script>
+    var strtest = 'fsdgabccjjj';
+
+
+    var a = 'aaacccc';
+    /*    ?  {0,1} 不支持贪婪模式 */
+    var reg = /c{1,2}/;
+//    var reg = /^b|c.+/;
+    var str='gcainiao';
+
+//    var reg1 = new RegExp(a);
+
+    console.log(reg.exec(strtest));
+
+    var str2 = 'ca b';
+
+    var reg3 = /\ba/;
+   console.log(reg3.exec(str2));
+//    \d   [0-9]
+//    \s
+
+    function trimStr(str){
+        var reg = /^\s+|\s+$/g;
+        str = str.replace(reg,'');
+        return str;
+    }
+
+    var str3 = '  abb c   ';
+
+    console.log(trimStr(str3).length);
+
+</script>
+
+</body>
+</html>
