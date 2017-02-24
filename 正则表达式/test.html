@@ -9,21 +9,21 @@
 <script>
     var strtest = 'fsdgabccjjj';
 
-
+    var c = 'ccc';
     var a = 'aaacccc';
-    /*    ?  {0,1} 不支持贪婪模式 */
-    var reg = /c{1,2}/;
+
+    var reg = /c{0,1}/;
 //    var reg = /^b|c.+/;
     var str='gcainiao';
 
 //    var reg1 = new RegExp(a);
 
-    console.log(reg.exec(strtest));
+    console.log(reg.exec(a));
 
     var str2 = 'ca b';
 
-    var reg3 = /\ba/;
-   console.log(reg3.exec(str2));
+    var reg3 = /a\b/;
+   console.log(reg3.exec(str2)+"llkk");
 //    \d   [0-9]
 //    \s
 
@@ -55,7 +55,7 @@
     //exec在g全局搜索的时候也 只返回第一个结果
     console.log(reg7.exec(str7));
     //match 在g全局搜索的时候 会返回所有的结果
-   console.log(str7.match(reg7)) ;
+    console.log(str7.match(reg7)) ;
 
 
 

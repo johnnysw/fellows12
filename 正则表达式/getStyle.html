@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="ul1">
+    <li class="cc aa bb">001</li>
+    <li>002</li>
+    <li class="bb">003</li>
+</ul>
+<script>
+//    document.getElementById('ul1');
+//    document.getElementsByClassName('aa');
+    function getClassName(className,context){
+        var result = [];
+        if(document.getElementsByClassName){
+            result = document.getElementsByClassName(className);
+        }else{
+            if(context){
+                var all = context.getElementsByTagName('*');
+            }else{
+                var all = document.getElementsByTagName('*');
+            }
+            for(var i=0; i<all.length; i++){
+                var reg = new RegExp('\\b'+className+'\\b');
+                if(reg.test(all[i].className)){
+                    result.push(all[i]);
+                }
+            }
+        }
+        return result;
+    }
+    var oUl = document.getElementById('ul1');
+    var aa = getClassName('aa');
+    for(var i=0; i<aa.length; i++){
+        aa[i].style.background = 'red';
+    }
+//    console.log(aa);
+</script>
+
+</body>
+</html>
