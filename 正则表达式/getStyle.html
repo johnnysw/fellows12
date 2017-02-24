@@ -18,11 +18,8 @@
         if(document.getElementsByClassName){
             result = document.getElementsByClassName(className);
         }else{
-            if(context){
-                var all = context.getElementsByTagName('*');
-            }else{
-                var all = document.getElementsByTagName('*');
-            }
+            context = context || document;
+            var all = context.getElementsByTagName('*');
             for(var i=0; i<all.length; i++){
                 var reg = new RegExp('\\b'+className+'\\b');
                 if(reg.test(all[i].className)){
