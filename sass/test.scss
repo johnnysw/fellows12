@@ -1,0 +1,82 @@
+$color:#eee;
+$font:20px;
+$font:12px !default;
+$class:red;
+body{
+  width: 100%;
+  #container{
+      background: $color;
+      #content{
+		background: #fff;
+      }
+  }
+  .main{
+		height:200px;
+		color:$color;
+		font-size: $font;
+		padding:10px 0 20px 0;
+		&:hover{
+			color: #ccc;
+		}
+  }
+
+  .#{$class}{
+	 background: url('img/#{$class}.jpg') 0 0 no-repeat;
+  }
+
+}
+@mixin border($color,$border){
+	border:$border solid $color;
+	box-shadow:2px 3px 3px #eee;
+}
+
+.header{
+	width:200px;
+	height:300px;
+	@include border(#888,5px);
+	border:2px solid #fff;
+}
+@mixin css3($att,$val){
+	-webkit-#{$att}:$val;
+	-moz-#{$att}:$val;
+	-ms-#{$att}:$val;
+	-o-#{$att}:$val;
+	#{$att}:$val;
+}
+
+.aa{
+	@include css3(border-radius,10px)
+}
+.cc{
+	@include css3(border-radius,10px)
+	
+}
+%pl{
+	width:300px;
+	height:200px;
+}
+
+.bb{
+	@extend .aa;
+	width:100px;
+	@extend %pl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
