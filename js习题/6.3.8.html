@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+
+
+    function leapYear(d){
+        if(d%400 ==0 || d%4 == 0 && d%100 != 0){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+
+    var d = new Date();
+
+    var year = d.getFullYear();
+    var month = d.getMonth();
+    var date = d.getDate();
+    var months=["31","28",31,30,31,30,31,31,30,31,30,31];
+    var a1 = leapYear(year);
+
+    months[1] = months[1] + a1;
+    var total = 0;
+    for(var i=0;i<month;i++){
+        total += months[i];
+    }
+
+    console.log(total + date);
+var a = "23";
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

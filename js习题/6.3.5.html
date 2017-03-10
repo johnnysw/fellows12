@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+    //如Merge("123456",''abc''）的返回结果是”1a2b3c456”。
+
+
+    function merge(s1,s2){
+        var newStr = '';
+        var len = s1.length > s2.length ? s1.length : s2.length;
+        for(var i=0;i<len;i++){
+            newStr += s1.charAt(i) + s2.charAt(i);
+        }
+        console.log(newStr);
+    }
+    merge("123456","abcdefghij");
+
+
+
+</script>
+</body>
+</html>
