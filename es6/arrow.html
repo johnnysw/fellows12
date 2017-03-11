@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+    <script>
+        var aLi = document.getElementsByTagName('li');
+        for(let i=0;i<aLi.length;i++){
+            aLi[i].onclick = function(){
+//                var _this = this;
+                setTimeout(()=>console.log(this.innerHTML)
+                ,2000);
+            }
+        }
+
+
+
+        //箭头函数
+//        function aa(name){
+        //            ....
+        //        }
+        //
+        //        aa();
+
+//        var map = new Map();
+//        map.set(0,1);
+//        map.set(3,2);
+//
+//        map.forEach(
+//            (value,key)=>console.log(value+key)
+//        );
+
+        //没有参数(),一个参数省略(),多个参数()
+        //多条语句，必须加{}。
+
+//        map.forEach(function(value){
+//            console.log(value);
+//        });
+
+//        aa()=>console.log("aaaa");
+//        aa();
+////
+//        class A{
+//            constructor(){
+//
+//            }
+//            eat()=>console.log("aaa")
+//        }
+//
+//        var a = new A();
+//        a.eat();
+
+        var obj = {
+            name:'zs',
+            eat:function(){
+
+            }
+        }
+
+        obj.eat();
+
+
+    </script>
+</body>
+</html>
