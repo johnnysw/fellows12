@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="num1">
+    <input type="text" v-model="num2">
+    <button @click="add">click</button>
+    两个数的和:{{add()}}
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            num1:0,
+            num2:1,
+            num:0
+        },
+        methods:{
+            add:function(){
+//                console.log(event);
+                this.num=parseInt(this.num1) + parseInt(this.num2);
+                return this.num;
+            }
+        }
+    });
+
+
+    //console.log(vm.msg);
+    //vm.add(3,4);
+
+</script>
+</body>
+</html>

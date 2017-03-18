@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="obj[1]">
+    <div v-text="msg" @click="fn"></div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:'<h1>aaaa</h1>',
+            obj:[1,2,4],
+            fn:0
+        },
+        methods:{
+            fn:function(){
+                alert(1111);
+            }
+        }
+    });
+
+    //console.log(vm.msg);
+//    vm.fn();
+
+</script>
+</body>
+</html>
