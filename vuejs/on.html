@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--<input type="text" @keyup.meta="fn"/>-->
+    <input type="text" @click.stop="fn"/>
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        methods:{
+            fn:function(){
+                console.log(1111111);
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
