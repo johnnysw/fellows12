@@ -11,7 +11,7 @@
         <ul>
             <li v-for="obj in facility">
                 {{obj.name}} ({{obj.price}})
-                <input type="checkbox" v-model="facility" @click="add(obj)">
+                <input type="checkbox" v-model="feeFacility" :value="obj">
             </li>
         </ul>
 
@@ -21,9 +21,9 @@
                 {{val.name}} {{val.price}}
             </li>
         </ul>
-        总金额:
+        总金额:{{total}}
     </div>
-<script src="vue.js"></script>
+<script src="vue.min.js"></script>
 <script>
     var vm = new Vue({
         el:"#app",
@@ -31,30 +31,40 @@
             facility:[],
             feeFacility:[{name:'群力花园豪华型',price:400}]
         },
+        computed:{
+            total:function(){
+                var t = 0;
+                this.feeFacility.forEach(function(val){
+                    t += val.price;
+                });
+                return t;
+            }
+        },
         methods:{
             getFacility:function(){
                 if(event.target.checked){
                     this.facility = [{name:'床',price:100},{name:'沙发',price:200},{name:'wifi',price:300}];
                 }else{
-                    this.facility = [];
+                    this.facility.splice(0);
+                    this.feeFacility.splice(1);
                 }
-            },
-            add:function(obj){
-                //var obj = this.facility[index]
-                this.feeFacility = [{name:'群力花园豪华型',price:400}];
-                if(event.target.checked){
-                    obj.checked = true;
-                }else{
-                    obj.checked = false;
-                }
-                var _this = this;
-                this.facility.forEach(function(val){
-                    if(val.checked){
-                        _this.feeFacility.push(val);
-                        console.log(11);
-                    }
-                });
             }
+//            add:function(obj){
+//                //var obj = this.facility[index]
+//                this.feeFacility.splice(1);
+//                if(event.target.checked){
+//                    obj.checked = true;
+//                }else{
+//                    obj.checked = false;
+//                }
+//                var _this = this;
+//                this.facility.forEach(function(val){
+//                    if(val.checked){
+//                        _this.feeFacility.push(val);
+//                    }
+//                });
+//
+//            }
         }
     });
 </script>

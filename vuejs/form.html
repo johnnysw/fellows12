@@ -13,12 +13,12 @@
         <option value="cc">333</option>
     </select>
     <input type="checkbox" name="name" v-model="aa" value="11"/>
-    <!--<input type="checkbox" name="name" v-model="aa" value="22"/>-->
-    <!--<input type="checkbox" name="name" v-model="check" value="33"/>-->
+    <input type="checkbox" name="name" v-model="aa" value="22"/>
+    <input type="checkbox" name="name" v-model="aa" value="33"/>
     <!--<input type="checkbox" name="name" v-model="check" value="44"/>-->
 
-    <input type="radio" name="sex" v-model="rad" value="m"/>男
-    <input type="radio" name="sex" v-model="rad" value="f"/>女
+    <!--<input type="radio" name="sex" v-model="rad" value="m"/>男-->
+    <!--<input type="radio" name="sex" v-model="rad" value="f"/>女-->
 </div>
 <script src="vue.js"></script>
 <script>
@@ -27,7 +27,7 @@
         data:{
             text:'test1',
             sele:'',
-            aa:true,
+            aa:[],
             rad:"男"
         }
     });

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+
+    <demo :msg-a="aaa" :msg-b="bbb">ddddd</demo>
+    <demo1></demo1>
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+//    Vue.component('demo',{
+//        template:"<div>sssssssss</div>"
+//    });
+
+    new Vue({
+        el:'#app',
+        data:{
+            aaa:'demo',
+            bbb:'demo2'
+        },
+        components:{
+            demo:{
+                template:"<div>{{msgA}},{{msgB}}</div>",
+                props:['msgA','msgB']
+            },
+            demo1:{
+                template:"<div>bbbbbbbb</div>"
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
