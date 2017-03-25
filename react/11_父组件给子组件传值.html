@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+
+<script src="react-15.3.1/build/react.js"></script>
+<script src="react-15.3.1/build/react-dom.js"></script>
+<script src="react-15.3.1/browser.js"></script>
+
+<script type="text/babel">
+    var SubComponent = React.createClass({
+        render : function(){
+            return (<h1>{this.props.str}</h1>);
+        }
+    });
+    var Component = React.createClass({
+        render : function(){
+            var str = "123";
+            return (<SubComponent str={str}/>);
+        }
+    });
+    ReactDOM.render(
+        <Component/>,
+        document.getElementById("container")
+    );
+</script>
+</body>
+</html>

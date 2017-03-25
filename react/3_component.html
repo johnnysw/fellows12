@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+
+    <script type="text/babel">
+        /*
+        *
+        * 组件名称首字母必须大写
+        * 必须是一个关闭的标签
+        *
+        * */
+        var Messagebox = React.createClass({
+            render : function(){
+                return (
+                        <div>
+                            <h1>Hello World!</h1>
+                            <div>divdiv</div>
+                        </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <div>
+                <Messagebox/>
+                <Messagebox/>
+            </div>,
+            document.getElementById("container")
+        );
+
+
+
+
+    </script>
+
+</body>
+</html>

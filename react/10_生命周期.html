@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+
+    <script type="text/babel">
+        var Component = React.createClass({
+            getDefaultProps : function(){
+                console.log("getDefaultProps");
+                return {};
+            },
+            getInitialState : function(){
+                console.log("getInitialState");
+                return {
+                    count : 0
+                };
+            },
+            componentWillMount : function(){
+                console.log("componentWillMount");
+                this.timer = setInterval(function(){
+                    this.setState({
+                        count : this.state.count + 1
+                    });
+                }.bind(this), 1000);
+            },
+            componentDidMount : function(){
+                console.log("componentDidMount");
+            },
+            handleClick : function(){
+                this.setState({
+                    count : this.state.count + 1
+                });
+            },
+            componentWillReceiveProps : function(){
+                console.log("componentWillReceiveProps");
+            },
+            shouldComponentUpdate : function(){
+                console.log("shouldComponentUpdate");
+//                if(this.state.count > 5){
+//                    return false;
+//                }
+                return true;
+            },
+            componentWillUpdate : function(){
+                console.log("componentWillUpdate");
+
+            },
+            componentDidUpdate : function(){
+                console.log("componentDidUpdate");
+
+            },
+            handleDestory : function(){
+                ReactDOM.unmountComponentAtNode(document.getElementById("container"));
+            },
+            componentWillUnmount : function(){
+                console.log("componentWillUnmount");
+                clearInterval(this.timer);
+            },
+            render : function(){
+                console.log("render");
+                return (
+                    <div>
+                        <button onClick={this.handleClick}>click</button>
+                        <button onClick={this.handleDestory}>销毁组件</button>
+                        <h1>{this.state.count}</h1>
+                    </div>
+
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <Component/>,
+            document.getElementById("container")
+        );
+
+    </script>
+
+</body>
+</html>

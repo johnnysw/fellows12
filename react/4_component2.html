@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+
+    <script type="text/babel">
+        var SubMessagebox = React.createClass({
+            render : function(){
+                return (
+                        <h1>SubMessagebox</h1>
+                );
+            }
+        });
+        var Messagebox = React.createClass({
+            render : function(){
+                return (
+                        <div>
+                            <SubMessagebox/>
+                            <h1>Hello World!</h1>
+                            <div>divdiv</div>
+                        </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <div>
+                <Messagebox/>
+                <Messagebox/>
+            </div>,
+            document.getElementById("container")
+        );
+
+
+
+
+    </script>
+
+</body>
+</html>
