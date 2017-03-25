@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+        <demo>
+            <h1 slot="title">
+                我是title
+            </h1>
+            <h1 slot="content">
+                我是content
+            </h1>
+        </demo>
+</div>
+
+<script src="vue.js"></script>
+<script type="text/x-template" id="my-demo">
+    <div>
+        标题:
+        <slot name="title">
+            当没有标题时
+        </slot>
+        内容:
+        <slot name="content">
+            当没有内容时
+        </slot>
+    </div>
+</script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            aaa:'demo',
+            bbb:'demo2'
+        },
+        components:{
+            demo:{
+                template:'#my-demo',
+                props:['msgA','msgB']
+            },
+            demo1:{
+                template:"<div>bbbbbbbb</div>"
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

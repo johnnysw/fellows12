@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000000;
+        }
+        ul{
+            list-style: none;
+        }
+        #container li{
+            float: left;
+            margin:0 2px 2px 0;
+
+        }
+        #container li:nth-child(4n){
+            margin-right: 0;
+        }
+        #container li img{
+            display: block;
+            /*background: url("img/") no-repeat contain;*/
+        }
+        #bigImg{display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            }
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+</head>
+<body>
+
+    <ul id="container"></ul>
+    <div id="bigImg"></div>
+    <script>
+        $(function(){
+            var num = 24;
+            var html = '';
+            var $container = $('#container');
+            var iMargin = 2;
+            var iNow;
+            for(var i=0; i<num; i++){
+                html+='<li><img src="img/thumbs/'+(i+1)+'.jpg" alt=""/></li>';
+            }
+
+            $container.append(html);
+            $('img',$container).css({
+                width:($('body').width()-3*iMargin)/4,
+                height:($('body').width()-3*iMargin)/4
+            }).on('tap',function(e){
+                $container.hide();
+                var index = $('#container img').index($(this));
+                iNow = index;
+//                $('#bigImg').show().css('background','url("img/1.jpg")  no-repeat');
+                $('#bigImg').show().css('background-image','url(img/'+(index+1)+'.jpg)');
+                e.preventDefault();
+            });
+
+            $('#bigImg').on('tap',function(e){
+                $(this).hide();
+                $container.show();
+                e.preventDefault();
+            }).on('swipeleft',function(){
+                iNow++;
+                if(iNow == $('#container img').length){
+                    iNow = 0;
+                }
+                $('#bigImg').css('background-image','url(img/'+(iNow+1)+'.jpg)');
+            }).on('swiperight',function(){
+                iNow--;
+                if(iNow == -1){
+                    iNow = $('#container img').length-1;
+                }
+                $('#bigImg').css('background-image','url(img/'+(iNow+1)+'.jpg)');
+            });
+
+
+
+
+
+
+        })
+    </script>
+</body>
+</html>

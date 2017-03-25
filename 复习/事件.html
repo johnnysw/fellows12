@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #00ffff;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<ul id="ul1">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+</ul>
+<input type="button" id="btn1" value="click"/>
+<script>
+    /*事件：e
+     事件源
+     事件
+     事件处理函数*/
+
+   /* var oDiv1 = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+    oDiv1.onclick = function(e){
+        e = e || window.event;
+        target = e.target || e.srcElement;
+    }
+    oDiv2.onclick = function(e){
+        e = e|| window.event;
+
+    }*/
+    //后生成元素的事件绑定
+    var oUl = document.getElementById('ul1');
+    aLi = oUl.getElementsByTagName('li');
+    var oBtn = document.getElementById('btn1');
+
+    /*var fn = function(){
+        console.log(this.innerHTML);
+    }
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].onclick = fn;
+
+    }*/
+
+    oBtn.onclick = function(){
+        var li = document.createElement('li');
+        li.innerHTML = 'aaa';
+//        li.onclick = fn;
+
+        oUl.appendChild(li);
+    }
+    //事件委托  e.target
+
+
+    oUl.onclick = function(e){
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+//        console.log(target.tagName);
+        if(target.tagName == 'LI'){
+
+            console.log(target.innerHTML);
+        }
+//        if(target == )
+
+    }
+
+    /*$('ul').on('click','li',function(){
+
+    });*/
+
+    //阻止事件冒泡
+   /* e.cancelBubble = true;
+    e.stopPropagation();
+    //阻止默认行为
+    return false;
+
+    e.preventDefault();
+    e.returnValue = false;
+
+    offsetWidth   width + padding +border  //只能取值 不能赋值
+
+    oDiv.style.width 能取值能赋值， 只能取到内联*/
+
+    var oDiv1 = document.getElementById('div1');
+//  console.log(  oDiv1.currentStyle.background);
+//    console.log(oDiv1.currentStyle.width);
+   console.log( window.getComputedStyle(oDiv1,null).width);
+
+
+    function getStyle(obj,cn) {
+        if (window.getComputedStyle) {//W3C DOM
+            return window.getComputedStyle(obj,null)[cn];
+        } else if (obj.currentStyle) {//IE
+            return obj.currentStyle[cn];
+        }
+        return "";
+    }
+
+    getStyle(oDiv1,'width');
+
+</script>
+</body>
+</html>

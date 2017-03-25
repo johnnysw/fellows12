@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="aa bb"></div>
+<script>
+    var strtest = 'fsdgabccjjj';
+
+    var c = 'ccc';
+    var a = 'aaacccc';
+
+    var reg = /c{0,1}/;
+//    var reg = /^b|c.+/;
+    var str='gcainiao';
+
+//    var reg1 = new RegExp(a);
+
+    console.log(reg.exec(a));
+
+    var str2 = 'ca b';
+
+    var reg3 = /a\b/;
+   console.log(reg3.exec(str2)+"llkk");
+//    \d   [0-9]
+//    \s
+
+    function trimStr(str){
+        var reg = /^\s+|\s+$/g;
+//        var reg = /\b\s+/g
+        str = str.replace(reg,'');
+        return str;
+    }
+
+    var str3 = '  abb c   ';
+    str3 = trimStr(str3);
+
+    console.log('qq'+str3+"qq"+str3.length);
+
+
+    var str4 = 'abba';
+
+    var reg4 = /(\w)(\w)\2\1/;
+
+    console.log(reg4.exec(str4));
+
+    var reg5 = /abc/ig;
+    var reg6 = new RegExp('abc','ig');
+
+    var str7 = 'abc hsdgh anc kkalc';
+
+    var reg7 = /a.c/g;
+    //exec在g全局搜索的时候也 只返回第一个结果
+    console.log(reg7.exec(str7));
+    //match 在g全局搜索的时候 会返回所有的结果
+    console.log(str7.match(reg7)) ;
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

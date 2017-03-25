@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+body{
+    font-family:  Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+}
+
+/*wrapper样式开始*/
+.wrapper{
+    width: 1002px;
+    margin: 0 auto;
+    /*background: #ff0000;*/
+    overflow: hidden;
+}
+.header{
+    height:120px;
+    /*background: #00ff00;*/
+}
+#logo{
+    margin-top:37px;
+    display: block;
+    float: left;
+}
+#nav{
+    float: left;
+    margin: 53px 0 0 130px;
+}
+#nav li{
+    float: left;
+    padding: 0 25px;
+    border-right: 1px solid #6b6b6b;
+    color:#626262;
+    font-size:15px;
+}
+#nav li.selected{
+    color:#00aeff;
+}
+#nav li:last-child{
+    border-right: none;
+}
+.search{
+    width: 130px;
+    height: 30px;
+    background: #f1f3f6;
+    float: right;
+    margin-top: 45px;
+}
+.search input{
+    width: 104px;
+    height: 30px;
+    border: none;
+    background: #f1f3f6;
+    outline: none;
+    text-indent: 11px;
+}
+#btn-search{
+    width: 26px;
+    height: 30px;
+    display: block;
+    background:url("../images/sprite.png") 5px 9px no-repeat;
+    float: right;
+    
+}
+.banner{
+    height: 460px;
+    background: #31333e;
+}

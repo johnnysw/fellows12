@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="div1"></div>
+    <div class="aa"></div>
+    <!--数据类型：-->
+    <!--1.基本数据类型-->
+        <!--string number boolean undefined null-->
+        <!--undefined-->
+        <!--1.声明了没有赋值-->
+        <!--2.数组、3、对象中没有属性-->
+        <!--null-->
+        <!--1.直接声明null-->
+        <!--2.dom元素没找到-->
+
+
+    <!--2.引用数据类型-->
+    object array function
+
+
+    <script>
+
+//        console.log(a);
+       /* var a = 10;
+        var obj = {
+            name:'zhangsan'
+        }
+        var arr = [1,2,3]
+        console.log(obj.age);
+        console.log(arr[4]);
+        var oDiv = document.getElementById('div2');
+        console.log(oDiv);
+        var aDiv = document.getElementsByTagName('div');//节点列表
+        for(var i=0; i<aDiv.lenght; i++){
+
+        }   */
+
+      /*  console.log(typeof undefined); //undefined
+        console.log(typeof null); //object
+        console.log(typeof [1,2,3]); //object*/
+       // var arr = []  new Array();
+var arr = [1,2,3];
+var obj = {
+
+}
+/*console.log(arr instanceof Array);
+console.log(obj instanceof Object);
+
+console.log(arr.constructor == Object)*/
+
+        var obj1 = {
+            name:'zhangsan'
+        }
+        var obj2 = obj1;
+        obj2.name = 'lisi';
+
+        console.log(obj1.name);
+
+        var obj = {   //对象直接量
+            name:'lizi'
+        }
+        var obj = new Object();  //实例化对象
+        obj.name = 'sks';
+
+        function Person(){
+            this.name = 'zhangsan';
+        }
+
+        Person.prototype.sayHello = function(){
+            console.log(this.name);
+        }
+
+        //DOM
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

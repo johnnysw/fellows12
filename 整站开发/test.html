@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href=""/>
+
+    <style>
+        #div3{
+            width: 100px;
+            height: 50px;
+            background: #00ff00;
+        }
+        #div1{
+            width: 20px;
+            height: 50px;
+            padding-right: 5px;
+            float: left;
+            display:inline;
+            background: #ff0000;
+            /*_display:inline;*/
+        }
+        #div2{
+            width: 75px;
+            height: 50px;
+            float: left;
+            background: #00ffff;
+            display: inline;
+            /*_display:inline;*/
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <label for="uname">姓名：</label><input id="uname" type="text"/>
+    <input type="checkbox" checked name="sex-aa" />
+    <a href="http://www.baidu.com">baidu</a>
+</form>
+
+<div id="div" class="my-div" aa="x" data-name="xx">ssshgghhgghhg哈哈</div>
+<div id="div3">
+    <div id="div1">aaa</div>
+    <div id="div2">bbb</div>
+</div>
+<input type="button" id="btn" value="click"/>
+<ul id="content">
+    <li>014</li>
+    <li>024</li>
+    <li>034</li>
+    <li>044</li>
+</ul>
+
+<script src="bluebox/js/jquery-1.12.4.js"></script>
+
+
+
+<!--$('input').prop('checked',false);-->
+
+<!--<script src="xx.js"></script>-->
+
+<script>
+    var oDiv = document.getElementById('div');
+    /*console.log(oDiv.className);
+
+    oDiv.bb = 'yy';
+    console.log(oDiv.bb);
+*/
+//    console.log(oDiv.getAttribute('data-name'));
+
+    console.log(oDiv.dataset.name);
+
+    /*$('#content li').on('click',function(){
+        alert($(this).html());
+    });*/
+
+    $('#btn').on('click',function(){
+        $('#content').append('<li>kkk</li>');
+    });
+
+    $('#content').on('click','li',function(){
+        alert($(this).html());
+    });
+
+</script>
+
+
+</body>
+</html>
